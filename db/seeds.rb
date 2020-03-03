@@ -8,8 +8,8 @@
 
 # Purges all data before seeding
 
-User.destroy_all
 Event.destroy_all
+User.destroy_all
 Ticket.destroy_all
 
 # --------------------------------------------------------------------------------------------#
