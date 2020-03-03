@@ -1,17 +1,18 @@
 <div class="container">
   <% if @user.attendee? %>
-    <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
-
-
+    <h1>Your profile (<%= @user.user_type %>)</h1>
+    <p>First name : <%= @user.first_name.capitalize %></p>
+    <p>Last name: <%= @user.last_name.capitalize %></p>
+    <p>Avatar URL: <%= @user.avatar %></p>
 
   <% elsif @user.organizer? %>
-    <h1><%= @user.organizer_name %> (<%= @user.user_type %>)</h1>
-    <%= link_to 'create an event', new_user_event_path(@user), class: 'btn btn-primary' %>
+    <h1>Your profile (<%= @user.user_type %>)</h1>
+    <p>Organisation : <%= @user.organizer_name %></p>
+    <p>Avatar URL: <%= @user.avatar %></p>
   <% end %>
-<!--   <h3>Your events:</h3>
-  <%# @user.events do |event| %>
-    <p><%#= event.title %></p>
-  <%# end %>
-</div>
- -->
 
+  <%= link_to 'Update profile', edit_user_path(@user), class: 'btn btn-primary' %>
+  <% if @user.organizer? %>
+    <%= link_to 'create event',  new_user_event_path(@user), class: 'btn btn-primary' %>
+  <% end %>
+</div>

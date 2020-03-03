@@ -1,0 +1,17 @@
+<h1>My dashboard</h1>
+
+<% if current_user.organizer? %>
+  <h3>My events</h3>
+  <% current_user.events.each do |event|  %>
+    <%= event.title %>
+  <% end %>
+<% elsif current_user.attendee? %>
+  <h3>as a an attendee</h3>
+
+<% end %>
+
+
+<%= link_to "All events", events_path, class: 'btn btn-primary' %>
+<% if current_user.organizer? %>
+  <%= link_to "Create a new event", new_event_path, class: 'btn btn-primary' %>
+<% end %>
