@@ -4,8 +4,8 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= event.title %></h2>
-            <p><%= event.description.first(15) %> ...</p>
-            <% if current_user.attendee? %>
+            <p><%= event.description.first(30) %> ...</p>
+            <% if current_user && current_user.attendee? %>
               <%= link_to 'Attend', event_tickets_path(event), method: :post, class: 'btn btn-primary' %>
             <% end %>
           </div>
