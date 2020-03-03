@@ -1,20 +1,7 @@
-<h1>Here are all the events</h1>
 
 <div class="container">
+  <h1>Here are all the events</h1>
   <% @events.each do |event| %>
-    <div class="mb-5">
-      <div class="card-trip">
-        <img src= <% event.banner %> />
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= event.title %></h2>
-            <p><%= event.description.first(50) %></p>
-            <%= link_to 'Attend', event_tickets_path(event), method: :post, class: 'btn btn-primary' %>
-          </div>
-          <h2 class="card-trip-pricing">Stake : <%= event.stake %> €</h2>
-          <img src= <% event.user.avatar %> class="card-trip-user avatar-bordered" />
-        </div>
-      </div>
-    </div>
+    <%= render "event_card", event: event %>
   <% end %>
 </div>

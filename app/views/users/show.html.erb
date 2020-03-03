@@ -16,3 +16,13 @@
     <%= link_to 'create event',  new_user_event_path(@user), class: 'btn btn-primary' %>
   <% end %>
 </div>
+
+
+<div class="container">
+  <h1>Here are all the events</h1>
+  <div class="profile-cards">
+    <% current_user.events.each do |user_event| %>
+      <%= render "events/event_card", event: user_event %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+  <div class="mb-5 card">
+      <div class="card-trip">
+        <img src= <%= event.banner %> />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= event.title %></h2>
+            <p><%= event.description.first(15) %> ...</p>
+            <% if current_user.attendee? %>
+              <%= link_to 'Attend', event_tickets_path(event), method: :post, class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+          <h2 class="card-trip-pricing">Stake : <%= event.stake %> €</h2>
+          <img src= "<% event.user.avatar %>" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    </div>
