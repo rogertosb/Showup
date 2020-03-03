@@ -6,7 +6,7 @@
 
   <% elsif @user.user_type == "Organizer" %>
     <h1><%= @user.organizer_name %> (<%= @user.user_type %>)</h1>
-    <%= link_to 'create an event',  %>
+    <%= link_to 'create an event', new_user_event_path(@user), class: 'btn btn-primary' %>
   <% end %>
 <!--   <h3>Your events:</h3>
   <%# @user.events do |event| %>
