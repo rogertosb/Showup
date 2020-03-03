@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create] do
     resources :tickets, only: %i[new create]
   end
-  resources :users, only: %i[show edit update]
+  resources :users, only: %i[show edit update] do
+    resources :events, only: %i[new create]
+  end
   get 'pages/sign_up_details', to: 'pages#sign_up_details', as: :sign_up_details
   root to: 'pages#home'
 end
