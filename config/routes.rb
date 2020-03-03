@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :events, only: %i[new create]
   end
   get 'pages/sign_up_details', to: 'pages#sign_up_details', as: :sign_up_details
+
+  get 'dashboard', to: 'dashboards#index', as: :dashboard
   root to: 'pages#home'
 end

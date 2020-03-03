@@ -1,0 +1,12 @@
+<h1>Your dashboard</h1>
+
+<%= link_to "Browse all events", events_path %>
+
+<h3>as a an organizer</h3>
+<%= link_to "Create a new event", new_event_path %>
+<% current_user.events.each do |event|  %>
+<%= event.title %>
+<% end %>
+
+<h3>as a an attendee</h3>
+
