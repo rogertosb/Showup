@@ -1,4 +1,15 @@
-<h1>All attendees</h1>
-<% @event.tickets.each do |ticket| %>
-<%= ticket.user.first_name  %>
-<% end  %>
+<div class="container">
+  <h1>All attendees</h1>
+  <% @event.tickets.each do |ticket| %>
+    <p><%= ticket.user.first_name %> <%= ticket.user.last_name %> ---
+    <% if ticket.status.nil? %>
+      No status yet
+    <% else %>
+      <%= ticket.status %>
+      <% if ticket.status != 'Show up' %>
+        <%= link_to 'Show Up', ticket_path(ticket), method: :patch, class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+    </p>
+  <% end  %>
+</div>
