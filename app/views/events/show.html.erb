@@ -13,7 +13,7 @@
   <p>End time: <%= @event.end_time %></p>
   <p>Organizer: <%= @event.user.organizer_name %></p>
   <p>Banner: <%= @event.banner %></p>
-  <% if @user.events.include?(@event) %>
+  <% if @user.attending_events.include?(@event) %>
     <p>--> I attend this event</p>
   <% else %>
     <p>--> I don't attend this event</p>
