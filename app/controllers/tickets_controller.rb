@@ -1,17 +1,51 @@
 class TicketsController < ApplicationController
+    before_action :set_ticket, only: [:show, :edit, :update, :destroy]
   # def new
   #   @ticket = Ticket.new
   # end
+  def index
+    @events = Event.all
+  end
 
   def create
-    @ticket = Ticket.new(tickets_params)
+    @ticket = Ticket.new(ticket_params)
     @ticket.user = current_user
-    @ticket.save!
+    if @ticket.save
+      redirect_to event_path(@event)
+    else
+      render 'new'
+    end
   end
+
+  def show
+
+  end
+
+  def edit
+
+  end
+
+  def update
+    @ticket.update(event_params)
+    @ticket.save
+    redirect_to events_path
+
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to events_path
+  end
+
 
   private
 
-  def tickets_params
-    params.permit(:user_id, :event_id)
+  def ticket_params
+    params.permit(:status. :user_id, :event_id)
   end
+
+  def set_ticket
+    @ticket = Ticket.find(params[:id])
+  end
+
 end

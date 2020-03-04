@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :events
+  # has_many :events, as: :organized_events
+  # has_many :events, as: :attending_events, through: :tickets
 
   def organizer?
     user_type.downcase == 'organizer'
