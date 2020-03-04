@@ -1,4 +1,4 @@
-<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.nh-hotels.net/nh_meetings-small_meeting_room.jpg?crop=8244:2476;12,1179&resize=2000:600&output-quality=75&resize=*:*);">
   <div class="container">
     <h1><strong>Show up</strong></h1>
     <h3>My milkshake brings all the attendees to the yard</h3>
@@ -10,13 +10,13 @@
 
 <div class="container">
   <div class="row">
-    <% Event.first(3).each do |event| %>
+    <% Event.all.sample(3).each do |event| %>
       <div class="home-cards col-sm">
         <%= render "events/event_card", event: event %>
       </div>
     <% end %>
   </div>
   <div class="l_events">
-  <%= link_to 'See all Events', events_path  %>
+  <%= link_to 'See all Events', events_path, class: 'btn btn-primary my-5' %>
   </div>
 </div>
