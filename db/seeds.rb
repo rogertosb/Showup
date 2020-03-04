@@ -39,11 +39,11 @@ e5 = Event.create(user: o1, title: "Pootsy cleaner get together", description: "
 # Creates reservations
 
 
-t1 = Ticket.new(status: "purchased", attending_event: e1, user: a1)
-t2 = Ticket.new(status: "purchased", attending_event: e1, user: a2)
-t3 = Ticket.new(status: "purchased", attending_event: e3, user: a3)
-t4 = Ticket.new(status: "purchased", attending_event: e4, user: a4)
-t5 = Ticket.new(status: "purchased", attending_event: e2, user: a4)
-t6 = Ticket.new(status: "purchased", attending_event: e5, user: a4)
-t7 = Ticket.new(status: "purchased", attending_event: e1, user: a3)
-t8 = Ticket.new(status: "purchased", attending_event: e2, user: a1)
+t1 = Ticket.new(status: "Attendee", attending_event: e1, user: a1)
+t2 = Ticket.new(status: "Attendee", attending_event: e1, user: a2)
+t3 = Ticket.new(status: "Attendee", attending_event: e3, user: a3)
+t4 = Ticket.new(status: "Attendee", attending_event: e4, user: a4)
+t5 = Ticket.new(status: "Attendee", attending_event: e2, user: a4)
+t6 = Ticket.new(status: "Attendee", attending_event: e5, user: a4)
+t7 = Ticket.new(status: "Attendee", attending_event: e1, user: a3)
+t8 = Ticket.new(status: "Attendee", attending_event: e2, user: a1)
