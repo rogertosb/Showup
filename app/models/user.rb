@@ -7,10 +7,10 @@ class User < ApplicationRecord
   has_many :events
 
   def organizer?
-    user_type == 'Organizer'
+    user_type.downcase == 'organizer'
   end
 
   def attendee?
-    user_type == 'Attendee'
+    user_type.downcase == 'attendee'
   end
 end
