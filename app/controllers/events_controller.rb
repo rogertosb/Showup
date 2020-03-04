@@ -28,7 +28,12 @@ class EventsController < ApplicationController
   end
 
   def update
-
+    @event.update(event_params)
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render 'new'
+    end
   end
 
   def destroy

@@ -3,8 +3,11 @@
         <img src= <%= event.banner %> />
         <div class="card-trip-infos">
           <div>
+            <p><%= event.start_time %><p>
             <h2><%= event.title %></h2>
-            <p><%= event.description.first(30) %> ...</p>
+            <p><%= event.user.organizer_name %><p>
+            <p><i class="fas fa-map-marker-alt"></i> <%= event.location %></p>
+            <!-- <p><%= event.description.first(30) %> ...</p> -->
             <% if current_user && current_user.attendee? %>
               <%= link_to 'Attend', event_tickets_path(event), method: :post, class: 'btn btn-primary' %>
             <% end %>
