@@ -4,7 +4,8 @@ class TicketsController < ApplicationController
   #   @ticket = Ticket.new
   # end
   def index
-    @events = Event.all
+    @event = Event.find(params[:event_id])
+    @tickets = Ticket.all
   end
 
   def create
