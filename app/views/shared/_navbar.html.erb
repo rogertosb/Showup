@@ -1,7 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+ <% end %>
+  <div class="btn_nav">
+    <% if !current_user %>
+      <%= link_to 'Sign in', new_user_session_path, class: "btn btn-flat" %>
+      <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-flat" %>
     <% end %>
+  </div>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
