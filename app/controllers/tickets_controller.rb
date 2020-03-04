@@ -11,6 +11,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.user = current_user
+    @ticket.status = 'Attendee'
 
     if @ticket.save
       redirect_to event_path(@ticket.attending_event)
@@ -28,10 +29,11 @@ class TicketsController < ApplicationController
   end
 
   def update
-    @ticket.update(event_params)
+    @event = @ticket.event_id
+    @ticket.update(ticket_params)
+    @ticket.status = 'Show up'
     @ticket.save
-    redirect_to events_path
-
+    redirect_to  event_tickets_path(@event)
   end
 
   def destroy
