@@ -10,8 +10,9 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.user = current_user
+
     if @ticket.save
-      redirect_to event_path(@event)
+      redirect_to event_path(@ticket.event)
     else
       render 'new'
     end
@@ -41,7 +42,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.permit(:status. :user_id, :event_id)
+    params.permit(:status, :user_id, :event_id)
   end
 
   def set_ticket
