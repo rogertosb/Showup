@@ -1,3 +1,34 @@
-<h1>the event</h1>
+<div class="container">
+  <div class="mb-5">
+    <h1>Event details</h1>
+  </div>
+  <p>Title: <%= @event.title %></p>
+  <p>Description: <%= @event.description %></p>
+  <p>Location: <%= @event.location %></p>
+  <p>Food: <%= @event.food %></p>
+  <p>Drink: <%= @event.drink %></p>
+  <p>Number max of attendees: <%= @event.number_max_of_attendees %></p>
+  <p>Stake: <%= @event.stake %> €</p>
+  <p>Start time: <%= @event.start_time %></p>
+  <p>End time: <%= @event.end_time %></p>
+  <p>Organizer: <%= @event.user.organizer_name %></p>
+  <p>Banner: <%= @event.banner %></p>
+  <% if @user.attending_events.include?(@event) %>
+    <p>--> I attend this event</p>
+  <% else %>
+    <p>--> I don't attend this event</p>
+  <% end %>
+  <% if @user.organizer? %>
+  <div class="mt-5">
+    <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
+  </div>
+    <div class="mt-5">
+    <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
+  </div>
+
+  <% elsif @user.attendee? %>
+    <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post %>
+  <% end %>
+</div>
 
 <%= link_to "Edit the event", edit_event_path(@event) %>
