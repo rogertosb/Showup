@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :events
-  # has_many :events, as: :organized_events
-  # has_many :events, as: :attending_events, through: :tickets
+  has_many :organized_events, class_name: "Event"
+  has_many :tickets
+  has_many :attending_events, through: :tickets
 
   def organizer?
     user_type.downcase == 'organizer'
@@ -15,4 +15,5 @@ class User < ApplicationRecord
   def attendee?
     user_type.downcase == 'attendee'
   end
+
 end
