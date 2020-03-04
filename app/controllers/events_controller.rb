@@ -21,6 +21,7 @@ class EventsController < ApplicationController
 
   def show
     @user = current_user
+    @ticket = @event.tickets.where(user: @user)
   end
 
   def edit

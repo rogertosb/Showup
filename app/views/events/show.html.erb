@@ -1,33 +1,43 @@
+<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @event.banner %>);">
+  <div class="event-show">
+    <div class="container">
+      <div class="mb-5">
+          <h1><%= @event.title %></h1>
+      </div>
+      <h3>Event details</h3>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="mb-5">
     <h1>Event details</h1>
   </div>
-  <p>Title: <%= @event.title %></p>
-  <p>Description: <%= @event.description %></p>
-  <p>Location: <%= @event.location %></p>
-  <p>Food: <%= @event.food %></p>
-  <p>Drink: <%= @event.drink %></p>
+  <!-- <p>Title: <%#= @event.title %></p>
+  <p>Description: <%#= @event.description %></p>
+   -->
+  <p><i class="fas fa-map-marker-alt" ></i> <%= @event.location %></p>
+  <p><i class="fas fa-utensils"></i> <%= @event.food %></p>
+  <p><i class="fas fa-glass-martini-alt"></i> <%= @event.drink %></p>
   <p>Number max of attendees: <%= @event.number_max_of_attendees %></p>
   <p>Stake: <%= @event.stake %> €</p>
-  <p>Start time: <%= @event.start_time %></p>
-  <p>End time: <%= @event.end_time %></p>
+  <p><i class="fas fa-hourglass-start"></i> From <%= @event.start_time %> to <%= @event.end_time %></p>
   <p>Organizer: <%= @event.user.organizer_name %></p>
-  <p>Banner: <%= @event.banner %></p>
   <% if @user.attending_events.include?(@event) %>
-    <p>--> I attend this event</p>
+    <p><i class="fas fa-check"></i> I attend this event</p>
   <% else %>
-    <p>--> I don't attend this event</p>
+    <p><i class="far fa-times-circle"></i> I don't attend this event</p>
   <% end %>
   <% if @user.organizer? %>
-  <div class="mt-5">
+  <div class="my-5">
     <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
-  </div>
-    <div class="mt-5">
     <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
   </div>
 
-  <% elsif @user.attendee? %>
-    <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post %>
+  <% elsif @user.attendee? && (@ticket[0].nil? || @ticket[0].status != 'Attendee') %>
+    <div class="my-5">
+      <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post %>
+    </div>
   <% end %>
 </div>
 
