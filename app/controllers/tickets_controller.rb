@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-    before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+    before_action :set_ticket, only: [:show, :edit, :update, :mark_as_cancelled, :mark_as_showed]
   # def new
   #   @ticket = Ticket.new
   # end
@@ -11,7 +11,12 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.user = current_user
-    @ticket.status = 'Attendee'
+
+    @existing_ticket = current_user.tickets.find_by(event_id: @ticket.event_id)
+    if @existing_ticket.present?
+      @ticket = @existing_ticket
+    end
+    @ticket.attendee!
 
     if @ticket.save
       redirect_to event_path(@ticket.attending_event)
@@ -21,26 +26,25 @@ class TicketsController < ApplicationController
   end
 
   def show
-
-  end
-
-  def edit
-
   end
 
   def update
-    @event = @ticket.event_id
-    @ticket.update(ticket_params)
-    @ticket.status = 'Show up'
-    @ticket.save
-    redirect_to  event_tickets_path(@event)
+    # @event = @ticket.event_id
+    # @ticket.update(ticket_params)
+    # @ticket.attendee!
+    # @ticket.save
   end
 
-  def destroy
-    @ticket.destroy
-    redirect_to events_path
+  def mark_as_showed
+    @ticket.showup!
+    redirect_to event_tickets_path(@ticket.event_id)
   end
 
+  def mark_as_cancelled
+    @ticket.cancel!
+    raise
+    redirect_to  event_path(@ticket.attending_event)
+  end
 
   private
 

@@ -15,5 +15,4 @@ class User < ApplicationRecord
   def attendee?
     user_type.downcase == 'attendee'
   end
-
 end
