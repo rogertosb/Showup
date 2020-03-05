@@ -42,7 +42,6 @@ class TicketsController < ApplicationController
 
   def mark_as_cancelled
     @ticket.cancel!
-    raise
     redirect_to  event_path(@ticket.attending_event)
   end
 
