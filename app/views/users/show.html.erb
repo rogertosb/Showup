@@ -3,11 +3,9 @@
     <h1>Your profil (<%= @user.user_type %>)</h1>
     <p>First name : <%= @user.first_name.capitalize %></p>
     <p>Last name: <%= @user.last_name.capitalize %></p>
-    <p>Avatar URL: <%= @user.avatar %></p>
   <% elsif @user.organizer? %>
     <h1>Your profil (<%= @user.user_type %>)</h1>
     <p>Organisation : <%= @user.organizer_name %></p>
-    <p>Avatar URL: <%= @user.avatar %></p>
   <% end %>
   <%= link_to 'Update profile', edit_user_path(@user), class: 'btn btn-primary' %>
   <% if @user.organizer? %>
