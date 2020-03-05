@@ -1,7 +1,9 @@
   <div class="mb-5 card">
 <%= link_to event_path(event), class: 'special' do %>
       <div class="card-trip">
-        <img src= <%= event.banner %> />
+        <% if event.photo.attached? %>
+          <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
         <div class="card-trip-infos">
           <div>
             <p><%= event.start_time %><p>
