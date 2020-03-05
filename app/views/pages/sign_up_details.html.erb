@@ -1,18 +1,1 @@
-<div class="container">
-  <% if current_user.attendee? && current_user.avatar.nil? %>
-    <%= simple_form_for(current_user) do |f| %>
-      <%= f.input :first_name, required: true, label: 'Your first name please', error: 'first name is mandatory, please specify one' %>
-      <%= f.input :last_name, required: true, label: 'Your last name please', error: 'last name is mandatory, please specify one' %>
-      <%= f.input :avatar, required: true, label: 'Your avatar please', error: 'Avatar is mandatory, please specify one' %>
-      <%= f.button :submit, "Send informations" %>
-    <% end %>
-  <% elsif current_user.organizer? && current_user.avatar.nil? %>
-      <%= simple_form_for(current_user) do |f| %>
-      <%= f.input :organizer_name, required: true, label: 'Your oraganization name please', error: 'oraganization name is mandatory, please specify one' %>
-      <%= f.input :avatar, required: true, label: 'Your avatar name please', error: 'Avatar is mandatory, please specify one' %>
-      <%= f.button :submit, "Send informations" %>
-    <% end %>
-  <% else %>
-    <% controller.redirect_to dashboard_path %>
-  <% end %>
-</div>
+<% render 'sign_up_form' %>

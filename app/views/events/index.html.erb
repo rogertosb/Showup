@@ -1,9 +1,20 @@
 
+<!-- <div class="container"> -->
+  <!-- <h1>All events</h1> -->
+  <%# @events.each do |event| %>
+  <!-- <div class="cards-index"> -->
+    <%#= render "event_card", event: event %>
+    <!-- </div> -->
+  <%# end %>
+<!-- </div> -->
+
+
 <div class="container">
   <h1>All events</h1>
-  <% @events.each do |event| %>
-  <div class="cards-index">
-    <%= render "event_card", event: event %>
+    <div class="row">
+      <% Event.all.each do |event| %>
+        <div class="home-cards col-sm-4">
+          <%= render "events/event_card", event: event %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
