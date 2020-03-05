@@ -5,8 +5,7 @@
   <%= f.input :title, label: 'Title', error: 'Adding a title is mandatory'%>
   <%= f.input :description, label: 'Description', error: 'Adding a description is mandatory' %>
   <%= f.input :location, label: 'Event location', error: 'Adding a location is mandatory' %>
-  <%= f.input :banner, label: 'Upload the banner for the event', error: 'Adding a banner is mandatory' %>
-
+  <%= f.input :photo, as: :file %>
   <div class="flex-container">
     <%= f.input :food, as: :select,
       collection: ["None", "Free", "Paid"], error: 'Please indicate whether food will be offered at the event'%>

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :organized_events, class_name: "Event"
   has_many :tickets
   has_many :attending_events, through: :tickets
+  has_one_attached :avatar
 
   def organizer?
     user_type.downcase == 'organizer'
