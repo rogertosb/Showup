@@ -11,6 +11,6 @@
   <% end %>
   <%= link_to 'Update profile', edit_user_path(@user), class: 'btn btn-primary' %>
   <% if @user.organizer? %>
-    <%= link_to 'create event', new_user_event_path(@user), class: 'btn btn-primary' %>
+    <%= link_to 'Create event', new_user_event_path(@user), class: 'btn btn-primary' %>
   <% end %>
 </div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <% if current_user.attendee? && current_user.avatar.nil? %>
+    <%= simple_form_for(current_user) do |f| %>
+      <%= f.input :first_name, required: true, label: 'First name', error: 'Adding a first name is mandatory' %>
+      <%= f.input :last_name, required: true, label: 'Your last name', error: 'Adding a last name is mandatory' %>
+      <%= f.input :avatar, required: true, label: 'Upload your avatar image', error: 'Uploading an avatar image is mandatory' %>
+      <%= f.button :submit, "Save" %>
+    <% end %>
+  <% elsif current_user.organizer? && current_user.avatar.nil? %>
+      <%= simple_form_for(current_user) do |f| %>
+      <%= f.input :organizer_name, required: true, label: 'Your oraganization name', error: 'Adding an oraganization name is mandatory' %>
+      <%= f.input :avatar, required: true, label: 'Upload your avatar image', error: 'Uploading an avatar image is mandatory' %>
+      <%= f.button :submit, "Save" %>
+    <% end %>
+  <% else %>
+    <% controller.redirect_to dashboard_path %>
+  <% end %>
+</div>
