@@ -8,7 +8,6 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.4.1'
 gem 'redis'
-
 gem 'stripe'
 
 gem 'autoprefixer-rails'
@@ -18,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary', '~> 1.12.0'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
