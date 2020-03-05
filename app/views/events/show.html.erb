@@ -1,50 +1,58 @@
-<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @event.banner %>);">
-  <div class="event-show">
+<div class="top-line">
+  <div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @event.banner %>);">
+    <div class="event-show ml-5">
+      <h1><%= @event.title %></h1>
+    </div>
+  </div>
+  <div class="description">
     <div class="container">
-      <div class="mb-5">
-          <h1><%= @event.title %></h1>
+      <div class="title">
+        <p><%= @event.title %></p>
       </div>
-      <h3>Event details</h3>
+      <p><i class="fas fa-hourglass-start"></i> From <%= @event.start_time %> to <%= @event.end_time %></p>
+      <p>Organizer: <%= @event.user.organizer_name %></p>
+      <p>Stake: <%= @event.stake %> €</p>
+
+      <% if @ticket.present? && @ticket.attendee? %>
+        <p><i class="fas fa-check"></i> I attend this event</p>
+        <div class="my-5">
+          <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch, data: { confirm: 'Are you sure to delete your ticket ?' } %>
+        </div>
+      <% else %>
+        <% if current_user.attendee? %>
+          <p><i class="far fa-times-circle"></i> I don't attend this event</p>
+          <div class="my-5">
+            <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post, data: { confirm: "Beware, by confirming, you agree to put a deposit of #{@event.stake} € in case you don't show up." } %>
+              <%= render 'countdown' %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if @user.organizer? %>
+      <div class="my-5">
+        <% if current_user.organizer? && current_user.organized_events.include?(@event) %>
+          <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
+          <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="mb-5">
-    <h1>Event details</h1>
-  </div>
-  <!-- <p>Title: <%#= @event.title %></p>
-  <p>Description: <%#= @event.description %></p>
-   -->
-  <p><i class="fas fa-map-marker-alt" ></i> <%= @event.location %></p>
-  <p><i class="fas fa-utensils"></i> <%= @event.food %></p>
-  <p><i class="fas fa-glass-martini-alt"></i> <%= @event.drink %></p>
-  <p>Number max of attendees: <%= @event.number_max_of_attendees %></p>
-  <p>Stake: <%= @event.stake %> €</p>
-  <p><i class="fas fa-hourglass-start"></i> From <%= @event.start_time %> to <%= @event.end_time %></p>
-  <p>Organizer: <%= @event.user.organizer_name %></p>
-
-  <% if @ticket.present? && @ticket.attendee? %>
-    <p><i class="fas fa-check"></i> I attend this event</p>
-    <div class="my-5">
-      <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch %>
-    </div>
-  <% else %>
-    <% if current_user.attendee? %>
-      <p><i class="far fa-times-circle"></i> I don't attend this event</p>
-      <div class="my-5">
-        <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post %>
+  <div class="bottom-line">
+    <div class="container">
+      <div class="title-and-description">
+        <p><%= @event.description %></p>
       </div>
-    <% end %>
-  <% end %>
-
-  <% if @user.organizer? %>
-  <div class="my-5">
-    <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
-    <% if current_user.organizer? && current_user.organized_events.include?(@event) %>
-      <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
-    <% end %>
-  <% end %>
+    </div>
+    <div class="infos-pratiques">
+      <p><i class="fas fa-map-marker-alt" ></i> <%= @event.location %></p>
+      <p><i class="fas fa-utensils"></i> <%= @event.food %></p>
+      <p><i class="fas fa-glass-martini-alt"></i> <%= @event.drink %></p>
+      <p><i class="fas fa-user-friends"></i> <%= @event.number_max_of_attendees %> attendees max</p>
+    </div>
   </div>
 </div>
 
