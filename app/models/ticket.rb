@@ -6,6 +6,7 @@ class Ticket < ApplicationRecord
 
   def attendee!
     self.status = 'Attendee'
+    save!
   end
 
   def attendee?
@@ -14,7 +15,7 @@ class Ticket < ApplicationRecord
 
   def showup!
     self.status = 'Show up'
-    save
+    save!
   end
 
   def showup?

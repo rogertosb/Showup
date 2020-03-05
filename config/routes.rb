@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :tickets, only: %i[create index]
     patch 'tickets/:id/mark_as_cancelled', to: 'tickets#mark_as_cancelled', as: :mark_as_cancelled
     patch 'tickets/:id/mark_as_showed', to: 'tickets#mark_as_showed', as: :mark_as_showed
+    patch 'tickets/:id/mark_as_attendee', to: 'tickets#mark_as_attendee', as: :mark_as_attendee
   end
 
   resources :tickets, only: %i[edit update show]
