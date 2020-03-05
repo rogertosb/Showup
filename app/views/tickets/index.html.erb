@@ -7,7 +7,7 @@
     <% else %>
       <%= ticket.status %>
       <% if ticket.status != 'Show up' %>
-        <%= link_to 'Show Up', ticket_path(ticket), method: :patch, class: 'btn btn-primary' %>
+        <%= link_to 'Show Up', event_mark_as_showed_path(@event, ticket), method: :patch, class: 'btn btn-primary' %>
       <% end %>
     <% end %>
     </p>

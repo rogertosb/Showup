@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :events do
     resources :tickets, only: %i[create index]
+    patch 'tickets/:id/mark_as_cancelled', to: 'tickets#mark_as_cancelled', as: :mark_as_cancelled
+    patch 'tickets/:id/mark_as_showed', to: 'tickets#mark_as_showed', as: :mark_as_showed
   end
 
-  resources :tickets, only: %i[edit update show detroy]
+  resources :tickets, only: %i[edit update show]
   resources :users, only: %i[new create]
 
   resources :users, only: %i[show edit update] do

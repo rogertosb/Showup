@@ -23,21 +23,24 @@
   <p>Stake: <%= @event.stake %> €</p>
   <p><i class="fas fa-hourglass-start"></i> From <%= @event.start_time %> to <%= @event.end_time %></p>
   <p>Organizer: <%= @event.user.organizer_name %></p>
-  <% if @user.attending_events.include?(@event) %>
+
+  <% if @ticket.present? && @ticket.attendee? %>
     <p><i class="fas fa-check"></i> I attend this event</p>
+    <div class="my-5">
+      <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch %>
+    </div>
   <% else %>
     <p><i class="far fa-times-circle"></i> I don't attend this event</p>
-  <% end %>
-  <% if @user.organizer? %>
-  <div class="my-5">
-    <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
-    <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
-  </div>
-
-  <% elsif @user.attendee? && (@ticket[0].nil? || @ticket[0].status != 'Attendee') %>
     <div class="my-5">
       <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post %>
     </div>
   <% end %>
+
+  <% if @user.organizer? %>
+  <div class="my-5">
+    <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
+    <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
+  <% end %>
+  </div>
 </div>
 
