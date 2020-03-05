@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-    before_action :set_ticket, only: [:show, :edit, :update, :mark_as_cancelled, :mark_as_showed]
+    before_action :set_ticket, only: [:show, :edit, :update, :mark_as_cancelled, :mark_as_showed, :mark_as_attendee]
   # def new
   #   @ticket = Ticket.new
   # end
@@ -42,7 +42,12 @@ class TicketsController < ApplicationController
 
   def mark_as_cancelled
     @ticket.cancel!
-    redirect_to  event_path(@ticket.attending_event)
+    redirect_to event_path(@ticket.attending_event)
+  end
+
+  def mark_as_attendee
+    @ticket.attendee!
+    redirect_to event_tickets_path(@ticket.attending_event)
   end
 
   private
