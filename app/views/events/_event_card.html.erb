@@ -5,10 +5,12 @@
           <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
         <div class="card-trip-infos">
-          <div>
-            <p><%= event.start_time %><p>
-            <h2><%= event.title %></h2>
-            <p><%= event.user.organizer_name %><p>
+          <div class="details-trip">
+            <p><%= event.start_time %></p>
+            <div class="details-trip-details">
+              <h2><%= event.title %></h2>
+              <p><%= event.user.organizer_name %></p>
+            </div>
             <p><i class="fas fa-map-marker-alt"></i> <%= event.location %></p>
             <!-- <p><%= event.description.first(30) %> ...</p> -->
             <%# if current_user && current_user.attendee? %>

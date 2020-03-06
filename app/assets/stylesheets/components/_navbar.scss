@@ -1,17 +1,49 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
+
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 60px;
 }
 
 .btn_nav{
   position:absolute;
   right: 10px;
+}
+
+.login_hover{
+  color: #86807F;
+  margin: 0px 10px;
+  padding: 24px;
+  &:hover{
+    color: black;
+    text-decoration: none;
+  }
+  .fas{
+    font-size: 2vw;
+  }
+  span{
+    padding: 5px;
+  }
+}
+
+
+.nav-item{
+  width:40px;
+  height:40px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  z-index:1;
 }
