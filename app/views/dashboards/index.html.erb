@@ -3,11 +3,11 @@
   <% %>
     <h3>Upcoming events</h3>
     <% @future_events.each do |event|  %>
-      <%= render "./events/event_card", event: event %>
+      <%= render "./events/event_card", event: event if (@user.attending_events.include?(event) && !event.tickets.where(user: @user)[0].canceled?) %>
     <% end %>
     <h3> Past Events </h3>
     <% @past_events.each do |event| %>
-      <%= render "./events/event_card", event: event %>
+      <%= render "./events/event_card", event: event if (@user.attending_events.include?(event) && !event.tickets.where(user: @user)[0].canceled?)  %>
   <% end %>
 
   <div class="mb-5">
