@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   devise_for :users
+  get 'users/sign_out', to: 'devise/sessions#destroy'
+
   resources :events do
     resources :tickets, only: %i[create index]
     patch 'tickets/:id/mark_as_cancelled', to: 'tickets#mark_as_cancelled', as: :mark_as_cancelled
