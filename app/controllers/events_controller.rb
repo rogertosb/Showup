@@ -28,6 +28,7 @@ class EventsController < ApplicationController
   def show
     @user = current_user
     @ticket = @event.tickets.find_by(user: @user)
+    @available_tickets = @event.tickets.select { |x| x.attendee? }.size
   end
 
   def edit

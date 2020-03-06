@@ -41,17 +41,14 @@
 
 <div class="container">
   <div class="bottom-line">
-    <div class="container">
-      <div class="title-and-description">
-        <p><%= @event.description %></p>
-
-      </div>
+    <div class="title-and-description">
+      <p><%= @event.description %></p>
     </div>
     <div class="infos-pratiques">
       <p><i class="fas fa-map-marker-alt" ></i> <%= @event.location %></p>
       <p><i class="fas fa-utensils"></i> <%= @event.food %></p>
       <p><i class="fas fa-glass-martini-alt"></i> <%= @event.drink %></p>
-      <p><i class="fas fa-user-friends"></i> <%= @event.number_max_of_attendees %> attendees max</p>
+      <p><i class="fas fa-user-friends"></i> <%= @available_tickets %> / <%= @event.number_max_of_attendees %> Attendees </p>
     </div>
   </div>
 </div>
