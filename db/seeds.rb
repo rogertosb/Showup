@@ -3,8 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create!(name: 'Luke', movie: movies.first)
 
 # Purges all data before seeding
 
@@ -17,7 +17,7 @@ Ticket.destroy_all
 # Creates 2 users with organizer type
 
 
-o1 = User.create(
+o1 = User.create!(
   first_name: nil,
   last_name: nil,
   organizer_name: "Le Wagon",
@@ -29,7 +29,7 @@ o1 = User.create(
 file_o1 = URI.open('https://dwj199mwkel52.cloudfront.net/assets/lewagon-logo-square-fe76916e1b923ade71e253ae6dc031d936e5e8eebac4e26b0fbac650ea6ee360.png')
 o1.avatar.attach(io: file_o1, filename: 'nes.png', content_type: 'image/png')
 
-o2 = User.create(
+o2 = User.create!(
   first_name: nil,
   last_name: nil,
   organizer_name: "HIVE Blockchain Society",
@@ -45,7 +45,7 @@ o2.avatar.attach(io: file_o2, filename: 'nes.png', content_type: 'image/png')
 
 # Creates 4 users with attendee type
 
-a1 = User.create(
+a1 = User.create!(
   first_name: "Max",
   last_name: "Hendrickx",
   organizer_name: nil,
@@ -57,7 +57,7 @@ a1 = User.create(
 file_a1 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
 a1.avatar.attach(io: file_a1, filename: 'nes.png', content_type: 'image/png')
 
-a2 = User.create(
+a2 = User.create!(
   first_name: "Xav",
   last_name: "Auffray",
   organizer_name: nil,
@@ -69,7 +69,7 @@ a2 = User.create(
 file_a2 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
 a2.avatar.attach(io: file_a2, filename: 'nes.png', content_type: 'image/png')
 
-a3 = User.create(
+a3 = User.create!(
   first_name: "Gee",
   last_name: "Veldekens",
   organizer_name: nil,
@@ -82,7 +82,7 @@ file_a3 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
 a3.avatar.attach(io: file_a3, filename: 'nes.png', content_type: 'image/png')
 
 
-a4 = User.create(
+a4 = User.create!(
   first_name: "Rog",
   last_name: "Tosbotn",
   organizer_name: nil,
@@ -97,9 +97,9 @@ a4.avatar.attach(io: file_a4, filename: 'nes.png', content_type: 'image/png')
 # --------------------------------------------------------------------------------------------#
 
 # Creates events
-
-e1 = Event.create(
-  user: o1,
+o1.reload
+e1 = Event.create!(
+  user_id: o1.id,
   title: "Le Wagon Demo Day Batch 362",
   description: "
 Join us at Be Central this 13th of March to discover the projects created by the students of the Winter Batch of Le Wagon Brussels.
@@ -120,7 +120,7 @@ Be prepared, it will rock! This is also the opportunity to:
 
 We will then celebrate the end of this journey and most importantly new beginnings, surrounded by great company & drinks!
 
-This event is free, but registration is mandatory!
+This event is Free, but registration is mandatory!
 
 Program:
 
@@ -143,8 +143,8 @@ We look forward to meeting you soon,
 Le Wagon Brussels Team",
   location: "LE WAGON ( BE CENTRAL 2nd floor )",
   banner: "https://i.imgur.com/W28v6KK.jpg",
-  food: "none",
-  drink: "free",
+  food: "None",
+  drink: "Free",
   number_max_of_attendees: 200,
   stake: 5,
   start_time: DateTime.parse('2020-03-13T07:18:00'),
@@ -154,14 +154,14 @@ Le Wagon Brussels Team",
 file = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F92961985%2F214604918889%2F1%2Foriginal.20200218-103312?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C40%2C1280%2C640&s=5d08d1e9655486e4f6c24e61be831c27')
 e1.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-e2 = Event.create(
+e2 = Event.create!(
   user: o2,
   title: "Red Bull BC One Belgium Cypher",
   description: "An epic event for trolls",
   location: "Becentral",
   banner: "https://i.imgur.com/W28v6KK.jpg",
-  food: "paid",
-  drink: "free",
+  food: "Paid",
+  drink: "Free",
   number_max_of_attendees: 200,
   stake: 10,
   start_time: DateTime.parse('2020-03-17T07:12:00'),
@@ -171,14 +171,14 @@ file2 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F8
 e2.photo.attach(io: file2, filename: 'nes.png', content_type: 'image/png')
 
 
-e3 = Event.create(
+e3 = Event.create!(
   user: o2,
   title: "Crypto / blockchain training",
   description: "An epic event for epic people",
   location: "DigitYser • Bruxelles",
   banner: "https://i.imgur.com/W28v6KK.jpg",
-  food: "paid",
-  drink: "free",
+  food: "Paid",
+  drink: "Free",
   number_max_of_attendees: 10,
   stake: 5,
   start_time: DateTime.parse('2020-03-23T07:18:00'),
@@ -187,14 +187,14 @@ e3 = Event.create(
 file3 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F95384691%2F266279915391%2F1%2Foriginal.20200304-190545?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C214%2C4760%2C2380&s=59f9c5947882c50df5b560883c3b89c9')
 e3.photo.attach(io: file3, filename: 'nes.png', content_type: 'image/png')
 
-e4 = Event.create(
+e4 = Event.create!(
   user: o1,
   title: "BXLBeerFest 2020",
   description: "An epic event for epic people",
   location: "Tour & Taxis, Bruxelles",
   banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F75943693%2F241405942936%2F1%2Foriginal.20191008-094517?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C1280%2C640&s=39b454a0b17882b8b41f3171e2ca0ead",
-  food: "none",
-  drink: "paid",
+  food: "None",
+  drink: "Paid",
   number_max_of_attendees: 80,
   stake: 3,
   start_time: DateTime.parse('2020-08-22T07:12:00'),
@@ -203,14 +203,14 @@ e4 = Event.create(
 file4 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F75943693%2F241405942936%2F1%2Foriginal.20191008-094517?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C1280%2C640&s=39b454a0b17882b8b41f3171e2ca0ead')
 e4.photo.attach(io: file4, filename: 'nes.png', content_type: 'image/png')
 
-e5 = Event.create(
+e5 = Event.create!(
   user: o1,
   title: "Muddy Angel Run - HOFSTADE 2020",
   description: "An epic event for epic people",
   location: "Sport Vlaanderen Hofstade",
   banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F62158556%2F265611780961%2F1%2Foriginal.20190513-101106?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C2000%2C1000&s=ffbe0738d559c661a0f452d290efcb82",
-  food: "free",
-  drink: "free",
+  food: "Free",
+  drink: "Free",
   number_max_of_attendees: 2000,
   stake: 40,
   start_time: DateTime.parse('2020-05-16T07:10:30'),
@@ -219,14 +219,14 @@ e5 = Event.create(
 file5 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F62158556%2F265611780961%2F1%2Foriginal.20190513-101106?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C2000%2C1000&s=ffbe0738d559c661a0f452d290efcb82')
 e5.photo.attach(io: file5, filename: 'nes.png', content_type: 'image/png')
 
-e6 = Event.create(
+e6 = Event.create!(
   user: o1,
   title: "Rampage: Hip hop, Trap and Rnb",
   description: "Dj Dutam officie dans les nuits Hip hop et Rnb depuis plus de 25 ans, il vient s'emparer et faire trembler les murs du Café Floréo chaque second vendredi du mois.",
   location: "Café Floréo",
   banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F62158556%2F265611780961%2F1%2Foriginal.20190513-101106?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C2000%2C1000&s=ffbe0738d559c661a0f452d290efcb82",
-  food: "none",
-  drink: "paid",
+  food: "None",
+  drink: "Paid",
   number_max_of_attendees: 400,
   stake: 10,
   start_time: DateTime.parse('2020-04-16T07:21:30'),
@@ -241,15 +241,15 @@ e6.photo.attach(io: file5, filename: 'nes.png', content_type: 'image/png')
 # Creates reservations
 
 
-t1 = Ticket.create(status: "Attendee", attending_event: e1, user: a1)
-t2 = Ticket.create(status: "Attendee", attending_event: e1, user: a2)
-t3 = Ticket.create(status: "Attendee", attending_event: e1, user: a3)
-t4 = Ticket.create(status: "Attendee", attending_event: e1, user: a4)
-t5 = Ticket.create(status: "Attendee", attending_event: e2, user: a1)
-t6 = Ticket.create(status: "Attendee", attending_event: e2, user: a2)
-t7 = Ticket.create(status: "Attendee", attending_event: e2, user: a3)
-t8 = Ticket.create(status: "Attendee", attending_event: e3, user: a3)
-t9 = Ticket.create(status: "Attendee", attending_event: e4, user: a2)
-t10 = Ticket.create(status: "Attendee", attending_event: e4, user: a4)
+t1 = Ticket.create!(status: "Attendee", attending_event: e1, user: a1)
+t2 = Ticket.create!(status: "Attendee", attending_event: e1, user: a2)
+t3 = Ticket.create!(status: "Attendee", attending_event: e1, user: a3)
+t4 = Ticket.create!(status: "Attendee", attending_event: e1, user: a4)
+t5 = Ticket.create!(status: "Attendee", attending_event: e2, user: a1)
+t6 = Ticket.create!(status: "Attendee", attending_event: e2, user: a2)
+t7 = Ticket.create!(status: "Attendee", attending_event: e2, user: a3)
+t8 = Ticket.create!(status: "Attendee", attending_event: e3, user: a3)
+t9 = Ticket.create!(status: "Attendee", attending_event: e4, user: a2)
+t10 = Ticket.create!(status: "Attendee", attending_event: e4, user: a4)
 
 
