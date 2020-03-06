@@ -1,16 +1,13 @@
 <div class="container">
-  <h1>My dashboard</h1>
 
-  <% if @user.organizer? %>
-    <h3>My events</h3>
-    <% @user.organized_events.each do |event|  %>
+  <% %>
+    <h3>Upcoming events</h3>
+    <% @future_events.each do |event|  %>
       <%= render "./events/event_card", event: event %>
     <% end %>
-  <% elsif @user.attendee? %>
-    <h3>Events </h3>
-    <% @user.attending_events.each do |event| %>
+    <h3> Past Events </h3>
+    <% @past_events.each do |event| %>
       <%= render "./events/event_card", event: event %>
-    <% end %>
   <% end %>
 
   <div class="mb-5">
