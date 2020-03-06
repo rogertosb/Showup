@@ -1,14 +1,41 @@
 <div class="container">
 
-  <% %>
-    <h3>Upcoming events</h3>
-    <% @future_events.each do |event|  %>
-      <%= render "./events/event_card", event: event if (@user.attending_events.include?(event) && !event.tickets.where(user: @user)[0].canceled?) %>
+    <div class="bm-5">
+      <h3>Upcoming events</h3>
+    </div>
+    <% if @user.attendee? %>
+      <% if @future_events.size > 0 %>
+        <% @future_events.each do |event|  %>
+          <%= render "./events/event_card", event: event if (@user.attending_events.include?(event) && !event.tickets.where(user: @user)[0].canceled?) %>
+        <% end %>
+      <% else %>
+        <br><br>
+        <h5><i class="fas fa-surprise"></i> You don't have any upcoming events, <strong><%= link_to 'find', events_path %></strong> some !</h5>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <% end %>
+      <div class="mb-5">
+        <h3> Past Events </h3>
+      </div>
+      <% @past_events.each do |event| %>
+        <%= render "./events/event_card", event: event if (@user.attending_events.include?(event) && !event.tickets.where(user: @user)[0].canceled?)  %>
+      <% end %>
+    <% elsif @user.organizer? %>
+      <% if @future_events.size > 0 %>
+        <% @future_events.each do |event|  %>
+          <%= render "./events/event_card", event: event if @user.organized_events.include?(event) %>
+        <% end %>
+      <% else %>
+        <br><br>
+        <h5><i class="fas fa-surprise"></i> You don't have any upcoming events, <strong><%= link_to 'organize', new_event_path %></strong> some !</h5>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <% end %>
+      <div class="mb-5">
+        <h3> Past Events </h3>
+      </div>
+      <% @past_events.each do |event| %>
+        <%= render "./events/event_card", event: event if @user.organized_events.include?(event)  %>
+      <% end %>
     <% end %>
-    <h3> Past Events </h3>
-    <% @past_events.each do |event| %>
-      <%= render "./events/event_card", event: event if (@user.attending_events.include?(event) && !event.tickets.where(user: @user)[0].canceled?)  %>
-  <% end %>
 
   <div class="mb-5">
     <%= link_to "All events", events_path, class: 'btn btn-primary' %>
