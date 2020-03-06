@@ -1,20 +1,20 @@
 <div class="form_container">
   <div class="container">
     <%= simple_form_for @event do |f| %>
-      <%= f.input :title, label: 'Title', error: 'Adding a title is mandatory'%>
-      <%= f.input :description, label: 'Description', error: 'Adding a description is mandatory' %>
-      <%= f.input :location, label: 'Event location', error: 'Adding a location is mandatory' %>
+      <%= f.input :title, label: 'Title', required: true, error: 'Adding a title is mandatory'%>
+      <%= f.input :description, label: 'Description',required: true, error: 'Adding a description is mandatory' %>
+      <%= f.input :location, label: 'Event location', required: true, error: 'Adding a location is mandatory' %>
       <%= f.input :photo, as: :file %>
       <div class="flex-container">
-        <%= f.input :food, as: :select,
-          collection: ["None", "Free", "Paid"], error: 'Please indicate whether food will be offered at the event'%>
-        <%= f.input :drink, as: :select,
-          collection: ["None", "Free", "Paid"], error: 'Please indicate whether drinks will be offered at the event' %>
+        <%= f.input :food,
+          collection: ["None", "Free", "Paid"], required: true, selected: (@event.food ||'None'), error: 'Please indicate whether food will be offered at the event'%>
+        <%= f.input :drink,
+          collection: ["None", "Free", "Paid"], required: true, selected: (@event.drink ||'None'), error: 'Please indicate whether drinks will be offered at the event' %>
       </div>
 
-      <%= f.input :number_max_of_attendees, label: 'Maximum number of attendees', error: 'number_max_of_attendees error' %>
-      <%= f.input :start_time, label: 'Start time', error: 'Selecting a start time for the event is mandatory' %>
-      <%= f.input :end_time, label: 'End time', error: 'Selecting an end time for the event is mandatory' %>
+      <%= f.input :number_max_of_attendees, label: 'Maximum number of attendees', required: true, error: 'number_max_of_attendees error' %>
+      <%= f.input :start_time, label: 'Start time', required: true, error: 'Selecting a start time for the event is mandatory' %>
+      <%= f.input :end_time, label: 'End time', required: true, error: 'Selecting an end time for the event is mandatory' %>
 
       <%= f.button :submit %>
     <% end %>
