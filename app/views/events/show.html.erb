@@ -19,7 +19,7 @@
           <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch, data: { confirm: 'Are you sure to delete your ticket ?' } %>
         </div>
       <% else %>
-        <% if current_user.attendee? && !@ticket.attendee? && !@ticket.showup? %>
+        <% if current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %></%>
           <div class="my-5">
             <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post, data: { confirm: "Beware, by confirming, you agree to put a deposit of #{@event.stake} € in case you don't show up." } %>
               <%= render 'countdown' %>
