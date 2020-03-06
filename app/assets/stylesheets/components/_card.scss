@@ -31,6 +31,14 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  .details-trip{
+    width: 100%;
+    display: grid;
+    grid-gap: 7px;
+  }
+  i{
+    font-size: 1.2vw;
+  }
 }
 
 .card-trip-infos .card-trip-user {
