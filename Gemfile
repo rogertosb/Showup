@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.5'
 
+gem 'social-share-button'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
