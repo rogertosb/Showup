@@ -53,6 +53,9 @@
       <p><i class="fas fa-glass-martini-alt"></i> <%= @event.drink %></p>
       <p><i class="fas fa-user-friends"></i> <%= @event.number_max_of_attendees %> attendees max</p>
     </div>
+    <div class="share-some">
+          <%= social_share_button_tag(@event.title) %>
+  </div>
   </div>
 </div>
 
