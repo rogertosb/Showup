@@ -27,7 +27,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item dropdown" class= "avatar dropdown-toggle" id= "navbarDropdown" data-toggle= "dropdown" aria-haspopup="true" aria-expanded="false" style="background-image: url('<%= cl_image_path current_user.avatar.key %>')">
+        <li class="nav-item dropdown" class= "avatar dropdown-toggle" id= "navbarDropdown" data-toggle= "dropdown" aria-haspopup="true", aria-expanded="false" style="background-image: url('<%= cl_image_path current_user.avatar.key %>')">
           <!-- <span class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup=></span> -->
           <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <%#= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Photo_pro_C%C3%A9dric_Villani.jpg/260px-Photo_pro_C%C3%A9dric_Villani.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
