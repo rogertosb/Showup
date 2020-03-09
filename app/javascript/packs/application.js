@@ -1,4 +1,4 @@
 import "bootstrap";
+import {initAutocomplete} from '../plugins/autocomplete'
 
-//= require jquery.countdown
-//= require jquery.countdown-es
+initAutocomplete()
