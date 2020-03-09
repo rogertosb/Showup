@@ -1,0 +1,64 @@
+.top-line {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.event_details_image img {
+  // height: 175px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.info-popup {
+  font-size: 14px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.description {
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.countdown {
+  margin: 0px;
+  padding-left: 5px;
+  font-size: 14px;
+}
+
+.bottom-line {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.description-and-share {
+  word-break: break-all;
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.practical-info {
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+
+.button-and-text {
+  display: flex;
+  align-items: center;
+}
+
+#demo {
+  margin: 0px;
+  // padding-left: 5px;
+}
+
+.pi-far {
+  font-size: 16px;
+  color: #0A2463;
+}
