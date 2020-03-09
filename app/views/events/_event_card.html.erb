@@ -1,9 +1,9 @@
 <div class="mb-5 card">
   <%= link_to event_path(event), class: 'special' do %>
     <div class="card-trip">
-      <% if event.photo.attached? %>
-        <%= cl_image_tag event.photo.key, height: 300, width: 600, crop: :fill %>
-      <% end %>
+        <% if event.photo.attached? %>
+          <%= cl_image_tag event.photo.key %>
+        <% end %>
       <div class="card-trip-infos">
         <div class="details-trip">
           <p><%= event.start_time %></p>
@@ -12,12 +12,7 @@
             <p><%= event.user.organizer_name %></p>
           </div>
           <p><i class="fas fa-map-marker-alt"></i> <%= event.location %></p>
-          <!-- <p><%= event.description.first(30) %> ...</p> -->
-          <%# if current_user && current_user.attendee? %>
-          <%# end %>
         </div>
-        <!-- <h2 class="card-trip-pricing">Stake : <%= event.stake %> €</h2> -->
-        <img src= "<% event.user.avatar %>" class="card-trip-user avatar-bordered" />
       </div>
     </div>
   <% end %>
