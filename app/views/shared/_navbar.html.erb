@@ -2,10 +2,10 @@
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://i.imgur.com/n9C2xqc.png" %>
  <% end %>
-  <li><%= link_to events_path, class: "login_hover left" do %>
+  <%= link_to events_path, class: "login_hover left" do %>
     <i class="fas fa-sign-in-alt"></i>
     <span> EVENTS CATALOGUE </span>
-  <% end %></li>
+  <% end %>
   <div class="btn_nav">
     <% if !current_user %>
     <ul class="nav navbar-nav navbar-right">
@@ -36,7 +36,7 @@
           <%#= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Photo_pro_C%C3%A9dric_Villani.jpg/260px-Photo_pro_C%C3%A9dric_Villani.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My dashboard", dashboard_path, class: "dropdown-item" %>
-            <%= link_to "Profil", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
             <%#= link_to "All events", events_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item" %>
           </div>
