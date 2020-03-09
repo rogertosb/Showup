@@ -38,7 +38,6 @@
     <% end %>
 
   <div class="mb-5">
-    <%= link_to "All events", events_path, class: 'btn btn-primary' %>
     <% if current_user.organizer? %>
       <%= link_to "Create a new event", new_event_path, class: 'btn btn-primary' %>
     <% end %>

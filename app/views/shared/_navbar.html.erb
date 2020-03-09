@@ -1,7 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navnav">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://i.imgur.com/n9C2xqc.png" %>
  <% end %>
+  <li><%= link_to events_path, class: "login_hover left" do %>
+    <i class="fas fa-sign-in-alt"></i>
+    <span> EVENTS CATALOGUE </span>
+  <% end %></li>
   <div class="btn_nav">
     <% if !current_user %>
     <ul class="nav navbar-nav navbar-right">
@@ -9,7 +13,6 @@
         <i class="fas fa-user-plus"></i>
         <span> SIGNUP </span>
       <% end %></li>
-
       <li><%= link_to new_user_session_path, class: "login_hover" do %>
         <i class="fas fa-sign-in-alt"></i>
         <span> LOGIN </span>
