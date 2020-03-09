@@ -1,4 +1,4 @@
-<div class="form_container">
+<div class="container-form">
   <%= simple_form_for @event do |f| %>
     <%= f.input :title, label: 'Title', required: true, error: 'Adding a title is mandatory'%>
     <%= f.input :description, label: 'Description', required: true, error: 'Adding a description is mandatory' %>
@@ -16,6 +16,6 @@
     <%= f.input :start_time, label: 'Start time', required: true, error: 'Selecting a start time for the event is mandatory' %>
     <%= f.input :end_time, label: 'End time', required: true, error: 'Selecting an end time for the event is mandatory' %>
 
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
   <% end %>
 </div>

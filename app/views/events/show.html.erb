@@ -5,25 +5,26 @@
       <div class="title">
         <p><%= @event.title %></p>
       </div>
-      <p><i class="fas fa-hourglass-start"></i> <%= @event.start_time.strftime("%a, %d %b %Y") %> --- <%= @event.start_time.to_s[-12..-4] %></p>
-      <p>Organizer: <%= @event.user.organizer_name %></p>
-      <p>Stake: <%= @event.stake %> €</p>
+      <p><i class="far fa-clock"></i> <%= @event.start_time.strftime("%a, %d %b %Y") %> || <%= @event.start_time.to_s[-12..-8] %> <i class="fas fa-arrow-right"></i> <%= @event.end_time.to_s[-12..-8] %></p>
+      <p><i class="fas fa-user-astronaut"></i> <%= @event.user.organizer_name %></p>
+      <p><i class="fas fa-coins"></i> <%= @event.stake %> €</p>
 
-      <% if @ticket.present? && @ticket.attendee? %>
-        <p><i class="fas fa-check"></i> I attend this event</p>
+      <% if !@user %>
+        <%= link_to 'Login', new_user_session_path(), class: 'btn btn-primary' %>
+      <% elsif @ticket.present? && @ticket.attendee? %>
+        <p><i class="fas fa-check"></i> Attending this event</p>
         <div class="my-5">
           <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch, data: { confirm: 'Are you sure to delete your ticket ?' } %>
         </div>
-      <% else %>
-        <% if current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %></%>
-          <div class="my-5">
-            <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post, data: { confirm: "Beware, by confirming, you agree to put a deposit of #{@event.stake} € in case you don't show up." } %>
-              <%= render 'countdown' %>
-          </div>
-        <% end %>
+      <% elsif current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %>
+        <div class="my-5">
+          <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post, data: { confirm: "Beware, by confirming, you agree to put a deposit of #{@event.stake} € in case you don't show up." } %>
+            <%= render 'countdown' %>
+        </div>
       <% end %>
 
-      <% if @user.organizer? %>
+      <% if !@user %>
+      <% elsif @user.organizer? %>
       <div class="my-5">
         <% if current_user.organizer? && current_user.organized_events.include?(@event) %>
           <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
