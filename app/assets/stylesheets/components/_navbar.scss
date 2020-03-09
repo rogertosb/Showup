@@ -38,6 +38,16 @@
   }
 }
 
+.navnav {
+  position: relative;
+}
+
+.left {
+  position: absolute;
+  left: 80px;
+  top: -6px;
+}
+
 
 .nav-item{
   width:40px;
