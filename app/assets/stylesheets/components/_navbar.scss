@@ -20,6 +20,13 @@
   right: 10px;
 }
 
+.active_nav {
+    color: #0A2463;
+    text-decoration: none;
+    border-bottom: 2px solid #E62E2D;
+    transition: all ease-in-out 100ms;
+}
+
 .login_hover{
   color: #86807F;
   margin: 0px 10px;
@@ -74,4 +81,8 @@ a:hover, a.active {
 .interactive_bar a:active {
   text-decoration: underline;
   color: white;
+}
+
+.navbar-left {
+      align-items: center;
 }
