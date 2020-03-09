@@ -187,8 +187,9 @@ e3 = Event.create!(
 file3 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F95384691%2F266279915391%2F1%2Foriginal.20200304-190545?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C214%2C4760%2C2380&s=59f9c5947882c50df5b560883c3b89c9')
 e3.photo.attach(io: file3, filename: 'nes.png', content_type: 'image/png')
 
+o1.reload
 e4 = Event.create!(
-  user: o1,
+  user_id: o1.id,
   title: "BXLBeerFest 2020",
   description: "An epic event for epic people",
   location: "Tour et Taxis",
@@ -203,8 +204,9 @@ e4 = Event.create!(
 file4 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F75943693%2F241405942936%2F1%2Foriginal.20191008-094517?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C1280%2C640&s=39b454a0b17882b8b41f3171e2ca0ead')
 e4.photo.attach(io: file4, filename: 'nes.png', content_type: 'image/png')
 
+o1.reload
 e5 = Event.create!(
-  user: o1,
+  user_id: o1.id,
   title: "Muddy Angel Run - HOFSTADE 2020",
   description: "An epic event for epic people",
   location: "Tervuursesteenweg,1981 Zemst",
@@ -219,8 +221,9 @@ e5 = Event.create!(
 file5 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F62158556%2F265611780961%2F1%2Foriginal.20190513-101106?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C2000%2C1000&s=ffbe0738d559c661a0f452d290efcb82')
 e5.photo.attach(io: file5, filename: 'nes.png', content_type: 'image/png')
 
+o1.reload
 e6 = Event.create!(
-  user: o1,
+  user_id: o1.id,
   title: "Rampage: Hip hop, Trap and Rnb",
   description: "Dj Dutam officie dans les nuits Hip hop et Rnb depuis plus de 25 ans, il vient s'emparer et faire trembler les murs du Café Floréo chaque second vendredi du mois.",
   location: "19 Rue des Riches Claires,1000 Bruxelles",
