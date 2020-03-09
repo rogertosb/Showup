@@ -3,40 +3,53 @@
     <div class="bm-5">
       <h3>Upcoming events</h3>
     </div>
+    <div class="row">
     <% if @user.attendee? %>
       <% if @future_events.size > 0 %>
         <% @future_events.each do |event|  %>
+        <div class="home-cards col-sm-4">
           <%= render "./events/event_card", event: event if (@user.attending_events.include?(event) && !event.tickets.where(user: @user)[0].canceled?) %>
+        </div>
         <% end %>
       <% else %>
         <br><br>
         <h5><i class="fas fa-surprise"></i> You don't have any upcoming events, <strong><%= link_to 'find', events_path %></strong> some !</h5>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <% end %>
+    </div>
       <div class="mb-5">
         <h3> Past Events </h3>
       </div>
+    <div class="row">
       <% @past_events.each do |event| %>
+      <div class="home-cards col-sm-4">
         <%= render "./events/event_card", event: event if (@user.attending_events.include?(event) && !event.tickets.where(user: @user)[0].canceled?)  %>
+      </div>
       <% end %>
     <% elsif @user.organizer? %>
       <% if @future_events.size > 0 %>
         <% @future_events.each do |event|  %>
+        <div class="home-cards col-sm-4">
           <%= render "./events/event_card", event: event if @user.organized_events.include?(event) %>
+        </div>
         <% end %>
       <% else %>
         <br><br>
         <h5><i class="fas fa-surprise"></i> You don't have any upcoming events, <strong><%= link_to 'organize', new_event_path %></strong> some !</h5>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <% end %>
+    </div>
       <div class="mb-5">
         <h3> Past Events </h3>
       </div>
+    <div class="row">
       <% @past_events.each do |event| %>
+      <div class="home-cards col-sm-4">
         <%= render "./events/event_card", event: event if @user.organized_events.include?(event)  %>
+       </div>
       <% end %>
     <% end %>
-
+    </div>
   <div class="mb-5">
     <% if current_user.organizer? %>
       <%= link_to "Create a new event", new_event_path, class: 'btn btn-primary' %>
