@@ -3,10 +3,16 @@
   grid-template-columns: 3fr 2fr;
 }
 
-.event_details_image img {
-  // height: 175px;
-  width: 100%;
-  object-fit: cover;
+// .event_details_image img {
+//   // height: 175px;
+//   width: 100%;
+//   object-fit: cover;
+// }
+
+.event_details_image {
+  background-repeat: none;
+  background-size: cover;
+
 }
 
 .info-popup {
@@ -62,3 +68,5 @@
   font-size: 16px;
   color: #0A2463;
 }
+
+
