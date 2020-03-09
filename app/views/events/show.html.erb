@@ -22,9 +22,13 @@
           </div>
         </div>
       <% elsif current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %>
+
         <div class="button-and-text my-5">
           <div>
-          <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post, data: { confirm: "Beware, by confirming, you agree to put a deposit of #{@event.stake} € in case you don't show up." } %>
+         <%= form_tag orders_path do %>
+            <%= hidden_field_tag 'event_id', @event.id %>
+            <%= submit_tag 'Attend', class: 'btn btn-primary' %>
+          <% end %>
           </div>
           <div class="countdown">
             <%= render 'countdown' %>
@@ -53,13 +57,15 @@
         <%= social_share_button_tag(@event.title) %>
         </div>
     </div>
+
     <div class="practical-info">
       <h4>Practical information</h4>
       <p><i class="far fa-clock pi-far"></i> <%= @event.start_time.strftime("%a, %d %b %Y") %> | <%= @event.start_time.to_s[-12..-8] %> <i class="fas fa-arrow-right"></i> <%= @event.end_time.to_s[-12..-8] %></p>
-      <p><i class="fas fa-map-marker-alt pi-far" ></i> <%= @event.location %></p>
+      <p><i class="fas fa-map-marker-alt pi-far" ></i> <a href="http://maps.google.com/maps/place/<%= URI::encode(@event.location) %>" target="_blank">  <i class="fas fa-map-marker-alt" ></i> <%= @event.location %></a></p>
       <p><i class="fas fa-glass-martini-alt pi-far"></i> <%= @event.drink %></p>
       <p><i class="fas fa-utensils pi-far"></i> <%= @event.food %></p>
       <p><i class="fas fa-user-friends pi-far"></i> <%= @available_tickets %> / <%= @event.number_max_of_attendees %> Attendees </p>
+
     </div>
 
 </div>

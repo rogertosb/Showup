@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     resources :events, only: %i[new create]
   end
 
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   get 'pages/sign_up_details', to: 'pages#sign_up_details', as: :sign_up_details
   get 'dashboard', to: 'dashboards#index', as: :dashboard
   root to: 'pages#home'

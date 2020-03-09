@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
     before_action :set_ticket, only: [:show, :edit, :update, :mark_as_cancelled, :mark_as_showed, :mark_as_attendee]
+    before_action :set_order, only: [:mark_as_cancelled]
   # def new
   #   @ticket = Ticket.new
   # end
@@ -29,10 +30,7 @@ class TicketsController < ApplicationController
   end
 
   def update
-    # @event = @ticket.event_id
-    # @ticket.update(ticket_params)
-    # @ticket.attendee!
-    # @ticket.save
+
   end
 
   def mark_as_showed
@@ -42,6 +40,8 @@ class TicketsController < ApplicationController
 
   def mark_as_cancelled
     @ticket.cancel!
+    @order.state = 'Cancelled'
+    @order.save!
     redirect_to event_path(@ticket.attending_event)
   end
 
@@ -60,4 +60,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
   end
 
+  def set_order
+    @order = Order.find(params[:id])
+  end
 end

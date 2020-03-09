@@ -1,11 +1,18 @@
+<div class="interactive_bar">
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navnav">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://i.imgur.com/n9C2xqc.png" %>
+    <%= image_tag "https://i.imgur.com/vHyAQeK.png" %>
  <% end %>
   <%= link_to events_path, class: "login_hover left" do %>
-    <i class="fas fa-sign-in-alt"></i>
+    <i class="fas fa-book-open"></i>
     <span> EVENTS CATALOGUE </span>
   <% end %>
+  <%# if @user %>
+    <%= link_to dashboard_path, class: "login_hover left-2" do %>
+      <i class="fas fa-tachometer-alt"></i>
+      <span> MY DASHBOARD </span>
+    <% end %>
+  <%# end %>
   <div class="btn_nav">
     <% if !current_user %>
     <ul class="nav navbar-nav navbar-right">
@@ -44,6 +51,8 @@
       <% end %>
     </ul>
   </div>
+</div>
+
 </div>
 <script>
   document.querySelectorAll(".dropdown-item").forEach((div) => {

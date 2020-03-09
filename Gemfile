@@ -9,7 +9,6 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.4.1'
 gem 'redis'
-gem 'stripe'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
@@ -18,6 +17,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary', '~> 1.12.0'
+gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'
+gem 'geocoder'
 
 
 group :development do
