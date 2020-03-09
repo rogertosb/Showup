@@ -1,25 +1,38 @@
 <div class="top-line">
-  <div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key %>');"></div>
+  <div class="event_details_image mb-5">
+    <%= cl_image_tag @event.photo.key %>
+  </div>
   <div class="description">
-    <div class="container">
+      <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
       <div class="title">
         <p><%= @event.title %></p>
       </div>
-      <p><i class="far fa-clock"></i> <%= @event.start_time.strftime("%a, %d %b %Y") %> || <%= @event.start_time.to_s[-12..-8] %> <i class="fas fa-arrow-right"></i> <%= @event.end_time.to_s[-12..-8] %></p>
-      <p><i class="fas fa-user-astronaut"></i> <%= @event.user.organizer_name %></p>
-      <p><i class="fas fa-coins"></i> <%= @event.stake %> €</p>
+      <p> by <%= @event.user.organizer_name %></p>
+      <p> Stake: <%= @event.stake %> € <i class="far fa-question-circle info-popup"></i> </p>
 
       <% if !@user %>
         <%= link_to 'Login', new_user_session_path(), class: 'btn btn-primary' %>
       <% elsif @ticket.present? && @ticket.attendee? %>
-        <p><i class="fas fa-check"></i> Attending this event</p>
-        <div class="my-5">
-          <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch, data: { confirm: 'Are you sure to delete your ticket ?' } %>
+        <div class="button-and-text my-5">
+          <div>
+            <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch, data: { confirm: 'Are you sure to delete your ticket ?' } %>
+          </div>
+          <div class="countdown">
+            You have a ticket for this event <i class="fas fa-check"></i>
+          </div>
         </div>
       <% elsif current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %>
-        <div class="my-5">
-          <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post, data: { confirm: "Beware, by confirming, you agree to put a deposit of #{@event.stake} € in case you don't show up." } %>
+
+        <div class="button-and-text my-5">
+          <div>
+         <%= form_tag orders_path do %>
+            <%= hidden_field_tag 'event_id', @event.id %>
+            <%= submit_tag 'Attend', class: 'btn btn-primary' %>
+          <% end %>
+          </div>
+          <div class="countdown">
             <%= render 'countdown' %>
+          </div>
         </div>
       <% end %>
 
@@ -32,24 +45,28 @@
         <% end %>
       <% end %>
       </div>
-    </div>
   </div>
 </div>
 
-<div class="container">
   <div class="bottom-line">
-    <div class="title-and-description">
+    <div class="description-and-share">
+      <h4>Description</h4>
       <p><%= @event.description %></p>
+      <h4>Share</h4>
+        <div class="share-some">
+        <%= social_share_button_tag(@event.title) %>
+        </div>
     </div>
-    <div class="infos-pratiques">
-      <p> <a href="http://maps.google.com/maps/place/<%= URI::encode(@event.location) %>" target="_blank">  <i class="fas fa-map-marker-alt" ></i> <%= @event.location %></a></p>
-      <p><i class="fas fa-utensils"></i> <%= @event.food %></p>
-      <p><i class="fas fa-glass-martini-alt"></i> <%= @event.drink %></p>
-      <p><i class="fas fa-user-friends"></i> <%= @available_tickets %> / <%= @event.number_max_of_attendees %> Attendees </p>
+
+    <div class="practical-info">
+      <h4>Practical information</h4>
+      <p><i class="far fa-clock pi-far"></i> <%= @event.start_time.strftime("%a, %d %b %Y") %> | <%= @event.start_time.to_s[-12..-8] %> <i class="fas fa-arrow-right"></i> <%= @event.end_time.to_s[-12..-8] %></p>
+      <p><i class="fas fa-map-marker-alt pi-far" ></i> <a href="http://maps.google.com/maps/place/<%= URI::encode(@event.location) %>" target="_blank">  <i class="fas fa-map-marker-alt" ></i> <%= @event.location %></a></p>
+      <p><i class="fas fa-glass-martini-alt pi-far"></i> <%= @event.drink %></p>
+      <p><i class="fas fa-utensils pi-far"></i> <%= @event.food %></p>
+      <p><i class="fas fa-user-friends pi-far"></i> <%= @available_tickets %> / <%= @event.number_max_of_attendees %> Attendees </p>
+
     </div>
-    <div class="share-some">
-          <%= social_share_button_tag(@event.title) %>
-  </div>
-  </div>
+
 </div>
 
