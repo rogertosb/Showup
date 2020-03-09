@@ -45,7 +45,7 @@
       <p><%= @event.description %></p>
     </div>
     <div class="infos-pratiques">
-      <p><i class="fas fa-map-marker-alt" ></i> <%= @event.location %></p>
+      <p> <a href="http://maps.google.com/maps/place/<%= URI::encode(@event.location) %>" target="_blank">  <i class="fas fa-map-marker-alt" ></i> <%= @event.location %></a></p>
       <p><i class="fas fa-utensils"></i> <%= @event.food %></p>
       <p><i class="fas fa-glass-martini-alt"></i> <%= @event.drink %></p>
       <p><i class="fas fa-user-friends"></i> <%= @available_tickets %> / <%= @event.number_max_of_attendees %> Attendees </p>

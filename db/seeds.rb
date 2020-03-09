@@ -141,7 +141,7 @@ The next batches in Brussels start on April the 6th (9 weeks - Full time) OR Mar
 We look forward to meeting you soon,
 
 Le Wagon Brussels Team",
-  location: "LE WAGON ( BE CENTRAL 2nd floor )",
+  location: "10 Cantersteen, Brussels",
   banner: "https://i.imgur.com/W28v6KK.jpg",
   food: "None",
   drink: "Free",
@@ -158,7 +158,7 @@ e2 = Event.create!(
   user: o2,
   title: "Red Bull BC One Belgium Cypher",
   description: "An epic event for trolls",
-  location: "Becentral",
+  location: "Koninklijke Vlaamse Schouwburg,7 Arduinkaai,1000 Brussel",
   banner: "https://i.imgur.com/W28v6KK.jpg",
   food: "Paid",
   drink: "Free",
@@ -175,7 +175,7 @@ e3 = Event.create!(
   user: o2,
   title: "Crypto / blockchain training",
   description: "An epic event for epic people",
-  location: "DigitYser • Bruxelles",
+  location: "Boulevard d'Anvers 40, 1000 Bruxelles",
   banner: "https://i.imgur.com/W28v6KK.jpg",
   food: "Paid",
   drink: "Free",
@@ -191,7 +191,7 @@ e4 = Event.create!(
   user: o1,
   title: "BXLBeerFest 2020",
   description: "An epic event for epic people",
-  location: "Tour & Taxis, Bruxelles",
+  location: "Tour et Taxis",
   banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F75943693%2F241405942936%2F1%2Foriginal.20191008-094517?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C1280%2C640&s=39b454a0b17882b8b41f3171e2ca0ead",
   food: "None",
   drink: "Paid",
@@ -207,7 +207,7 @@ e5 = Event.create!(
   user: o1,
   title: "Muddy Angel Run - HOFSTADE 2020",
   description: "An epic event for epic people",
-  location: "Sport Vlaanderen Hofstade",
+  location: "Tervuursesteenweg,1981 Zemst",
   banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F62158556%2F265611780961%2F1%2Foriginal.20190513-101106?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C2000%2C1000&s=ffbe0738d559c661a0f452d290efcb82",
   food: "Free",
   drink: "Free",
@@ -223,7 +223,7 @@ e6 = Event.create!(
   user: o1,
   title: "Rampage: Hip hop, Trap and Rnb",
   description: "Dj Dutam officie dans les nuits Hip hop et Rnb depuis plus de 25 ans, il vient s'emparer et faire trembler les murs du Café Floréo chaque second vendredi du mois.",
-  location: "Café Floréo",
+  location: "19 Rue des Riches Claires,1000 Bruxelles",
   banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F62158556%2F265611780961%2F1%2Foriginal.20190513-101106?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C2000%2C1000&s=ffbe0738d559c661a0f452d290efcb82",
   food: "None",
   drink: "Paid",
@@ -232,8 +232,8 @@ e6 = Event.create!(
   start_time: DateTime.parse('2020-04-16T07:21:30'),
   end_time: DateTime.parse('2020-04-16T07:23:30')
 )
-file5 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F71918231%2F194893512187%2F1%2Foriginal.20190907-114116?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C11%2C960%2C480&s=6f25c81f214d0daa4bb56e1f70eb8d92')
-e6.photo.attach(io: file5, filename: 'nes.png', content_type: 'image/png')
+file6 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F71918231%2F194893512187%2F1%2Foriginal.20190907-114116?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C11%2C960%2C480&s=6f25c81f214d0daa4bb56e1f70eb8d92')
+e6.photo.attach(io: file6, filename: 'nes.png', content_type: 'image/png')
 
 
 # --------------------------------------------------------------------------------------------#
