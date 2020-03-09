@@ -18,7 +18,10 @@
         </div>
       <% elsif current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %>
         <div class="my-5">
-          <%= link_to 'Attend', event_tickets_path(@event), class: 'btn btn-primary', method: :post, data: { confirm: "Beware, by confirming, you agree to put a deposit of #{@event.stake} € in case you don't show up." } %>
+          <%= form_tag orders_path do %>
+            <%= hidden_field_tag 'event_id', @event.id %>
+            <%= submit_tag 'Attend', class: 'btn btn-primary' %>
+          <% end %>
             <%= render 'countdown' %>
         </div>
       <% end %>
