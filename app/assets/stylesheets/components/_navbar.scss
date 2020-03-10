@@ -21,7 +21,7 @@
 }
 
 .active_nav {
-    color: #0A2463;
+    color: #0A2463 !important;
     text-decoration: none;
     border-bottom: 2px solid #E62E2D;
     transition: all ease-in-out 100ms;
@@ -37,6 +37,7 @@
     border-bottom: 2px solid #E62E2D;
     transition: all ease-in-out 100ms;
   }
+
   .fas{
     font-size: 2vw;
   }
