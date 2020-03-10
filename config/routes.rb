@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  # delete 'users/sign_out', to: 'devise/sessions#destroy'
 
   resources :events do
     patch 'event_over', to: 'tickets#event_over', as: :event_over
@@ -12,10 +11,11 @@ Rails.application.routes.draw do
   end
 
   resources :tickets, only: %i[edit update show]
-  resources :users, only: %i[new create]
 
-  resources :users, only: %i[show edit update] do
+  resources :users, only: %i[new create show edit update] do
     resources :events, only: %i[new create]
+    patch 'switch_to_organizer', to: 'users#switch_to_organizer', as: :switch_to_organizer
+    patch 'switch_to_attendee', to: 'users#switch_to_attendee', as: :switch_to_attendee
   end
 
   resources :orders, only: [:show, :create] do

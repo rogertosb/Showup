@@ -5,12 +5,15 @@
     <p>Last name: <%= @user.last_name.capitalize %></p>
     <p>Email: <%= @user.email %></p>
     <p>Password: *************</p>
+    <%= link_to 'Switch to organizer', user_switch_to_organizer_path(@user), method: :patch, class: 'btn btn-primary' %>
   <% elsif @user.organizer? %>
     <h1>Your profile (<%= @user.user_type %>)</h1>
     <p>Organisation : <%= @user.organizer_name %></p>
     <p>Email: <%= @user.email %></p>
     <p>Password: *************</p>
+    <%= link_to 'Switch to attendee', user_switch_to_attendee_path(@user), method: :patch, class: 'btn btn-primary' %>
   <% end %>
   <%= link_to 'Update information', edit_user_path(@user), class: 'btn btn-primary' %>
   <%= link_to 'Change email & password', edit_user_registration_path, class: 'btn btn-primary' %>
 </div>
+
