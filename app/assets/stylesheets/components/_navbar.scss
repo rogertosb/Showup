@@ -1,10 +1,16 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
+}
+
+.interactive_bar {
+   position: sticky;
+   top: 0;
+   z-index: 100;
 }
 
 .navbar-lewagon .navbar-collapse {
