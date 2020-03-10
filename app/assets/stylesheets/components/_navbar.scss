@@ -18,7 +18,8 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 60px;
+  width: 80px;
+  height: auto;
 }
 
 .btn_nav{
@@ -37,6 +38,7 @@
   color: #86807F;
   margin: 0px 10px;
   padding: 24px;
+  font-size: 18px;
   &:hover{
     color: #0A2463;
     text-decoration: none;
@@ -48,7 +50,8 @@
     font-size: 2vw;
   }
   span{
-    padding: 5px;
+    padding: 2px;
+
   }
 }
 
