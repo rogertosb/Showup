@@ -1,9 +1,6 @@
 class TicketsController < ApplicationController
     before_action :set_ticket, only: [:show, :edit, :update, :mark_as_cancelled, :mark_as_showed, :mark_as_attendee]
-    # before_action :set_order, only: [:mark_as_cancelled]
-  # def new
-  #   @ticket = Ticket.new
-  # end
+
   def index
     @event = Event.find(params[:event_id])
     @tickets = Ticket.all
@@ -36,9 +33,9 @@ class TicketsController < ApplicationController
 
   def mark_as_cancelled
     @ticket.cancel!
-    @order = Order.where(id: @ticket.order_id)
-    @order[0].cancel_payment
-    @order[0].save!
+    @order = Order.find(@ticket.order_id)
+    @order.cancel_payment
+    @order.save!
     redirect_to event_path(@ticket.attending_event)
   end
 
@@ -48,8 +45,19 @@ class TicketsController < ApplicationController
   end
 
   def event_over
-    @event = @ticket.event
-    @@event.tickets.select { |ticket| ticket.status == 'requires_capture' }
+    event = Event.find(params[:event_id])
+    tickets = event.tickets
+    tickets.each do |ticket|
+      if ticket.showup?
+        order = Order.find(ticket.order_id)
+        order.cancel_payment
+        order.save!
+      elsif ticket.attendee?
+        order = Order.find(ticket.order_id)
+        order.collect_payment
+        order.save!
+      end
+    end
   end
 
   private
@@ -60,9 +68,5 @@ class TicketsController < ApplicationController
 
   def set_ticket
     @ticket = Ticket.find(params[:id])
-  end
-
-  def set_order
-    @order = Order.find(params[:id])
   end
 end
