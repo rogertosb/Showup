@@ -1,7 +1,7 @@
 class StripeCheckoutSessionService
   def call(event)
     order = Order.find_by(checkout_session_id: event.data.object.id)
-    order.update(state: 'paid')
+    order.update(state: 'requires_capture')
     create_ticket(order)
   end
 
@@ -9,6 +9,6 @@ class StripeCheckoutSessionService
 
   def create_ticket(order)
     ticket = Ticket.find_or_create_by(user_id: order.user.id, event_id: order.event.id)
-    ticket.update(status: 'Attendee')
+    ticket.update(status: 'Attendee', order_id: order.id)
   end
 end
