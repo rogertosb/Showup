@@ -1,15 +1,16 @@
-<div class="top-line">
-  <div class="event_details_image " style= "background-image: url(<%= cl_image_path @event.photo.key %>);">
-    <%#= cl_image_tag @event.photo.key %>
-  </div>
-  <div class="description">
+<div class="container">
+  <div class="top-line">
+    <div class="event_details_image " style= "background-image: url(<%= cl_image_path @event.photo.key %>);">
+      <%#= cl_image_tag @event.photo.key %>
+    </div>
+    <div class="description">
       <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
       <div class="title">
         <p><%= @event.title %></p>
       </div>
       <p> by <%= @event.user.organizer_name %></p>
       <div class="stake-info">
-      <p> Stake: <%= @event.stake %> € <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="Tooltip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdn top"></i> </p>
+        <p> Stake: <%= @event.stake %> € <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="Tooltip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdn top"></i> </p>
       </div>
       <% if !@user %>
         <%= link_to 'Login', new_user_session_path(), class: 'btn btn-primary' %>
@@ -23,13 +24,12 @@
           </div>
         </div>
       <% elsif current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %>
-
         <div class="button-and-text">
           <div>
-         <%= form_tag orders_path do %>
-            <%= hidden_field_tag 'event_id', @event.id %>
-            <%= submit_tag 'Attend', class: 'btn btn-primary' %>
-          <% end %>
+            <%= form_tag orders_path do %>
+              <%= hidden_field_tag 'event_id', @event.id %>
+              <%= submit_tag 'Attend', class: 'btn btn-primary' %>
+            <% end %>
           </div>
           <div class="countdown">
             <%= render 'countdown' %>
@@ -39,15 +39,15 @@
 
       <% if !@user %>
       <% elsif @user.organizer? %>
-      <div class="my-5">
-        <% if current_user.organizer? && current_user.organized_events.include?(@event) %>
-          <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
-          <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
-        <% end %>
+        <div class="my-5">
+          <% if current_user.organizer? && current_user.organized_events.include?(@event) %>
+            <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
+            <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
       <% end %>
-      </div>
+    </div>
   </div>
-</div>
 
   <div class="bottom-line">
     <div class="description-and-share">
@@ -55,7 +55,7 @@
       <p><%= @event.description %></p>
       <h4>Share</h4>
         <div class="share-some">
-        <%= social_share_button_tag(@event.title) %>
+          <%= social_share_button_tag(@event.title) %>
         </div>
     </div>
 
@@ -66,8 +66,6 @@
       <p><i class="fas fa-glass-martini-alt pi-far"></i> <%= @event.drink %></p>
       <p><i class="fas fa-utensils pi-far"></i> <%= @event.food %></p>
       <p><i class="fas fa-user-friends pi-far"></i> <%= @available_tickets %> / <%= @event.number_max_of_attendees %> Attendees </p>
-
     </div>
-
+  </div>
 </div>
-
