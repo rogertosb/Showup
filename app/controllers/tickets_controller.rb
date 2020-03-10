@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
     before_action :set_ticket, only: [:show, :edit, :update, :mark_as_cancelled, :mark_as_showed, :mark_as_attendee]
-    before_action :set_order, only: [:mark_as_cancelled]
+    # before_action :set_order, only: [:mark_as_cancelled]
   # def new
   #   @ticket = Ticket.new
   # end
@@ -29,10 +29,6 @@ class TicketsController < ApplicationController
   def show
   end
 
-  def update
-
-  end
-
   def mark_as_showed
     @ticket.showup!
     redirect_to event_tickets_path(@ticket.event_id)
@@ -40,8 +36,9 @@ class TicketsController < ApplicationController
 
   def mark_as_cancelled
     @ticket.cancel!
-    @order.state = 'Cancelled'
-    @order.save!
+    @order = Order.where(id: @ticket.order_id)
+    @order[0].cancel_payment
+    @order[0].save!
     redirect_to event_path(@ticket.attending_event)
   end
 
@@ -50,10 +47,15 @@ class TicketsController < ApplicationController
     redirect_to event_tickets_path(@ticket.attending_event)
   end
 
+  def event_over
+    @event = @ticket.event
+    @@event.tickets.select { |ticket| ticket.status == 'requires_capture' }
+  end
+
   private
 
   def ticket_params
-    params.permit(:status, :user_id, :event_id)
+    params.permit(:status, :user_id, :event_id, :order_id)
   end
 
   def set_ticket

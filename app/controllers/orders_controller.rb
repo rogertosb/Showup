@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: event.title,
-        # images: [event.photo_url],
+        images: [event.photo],
         amount: event.stake_cents,
         currency: 'eur',
         quantity: 1
@@ -25,10 +25,5 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
-  end
-
-  def cancel!
-    self.state = 'Cancelled'
-    save!
   end
 end
