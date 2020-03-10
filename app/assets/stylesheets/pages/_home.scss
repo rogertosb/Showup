@@ -7,3 +7,18 @@
   right: 10px;
   bottom: -80px;
 }
+
+.container h3 {
+  position: relative;
+  top: 5;
+
+}
+
+.howitworks{
+  justify-items: center;
+}
+.showup-works {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  space-between: none;
+}
