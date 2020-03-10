@@ -1,27 +1,40 @@
 <div class="top-line">
-  <div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key %>');">
+  <!-- <div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key %>');">
     <div class="event-show ml-5">
       <h1><%= @event.title %></h1>
-    </div>
+    </div> -->
   </div>
 
   <div class="container">
-    <h1>Attendees</h1>
+    <h1><%= @event.title %></h1>
+    <p><%= @event.start_time %></p>
+    <h2>Attendees - <%= @event.tickets.select{ |ticket| ticket.status == 'Show up'}.count %> / <%= @event.tickets.size %></h2>
+    <div class="row">
     <% @event.tickets.each do |ticket| %>
-      <p><%= ticket.user.first_name %> <%= ticket.user.last_name %> ---
-      <% if ticket.status.nil? %>
-        No status yet
-      <% else %>
-        <%= ticket.status %>
-        <% if ticket.status != 'Show up' %>
-          <%= link_to 'Show Up', event_mark_as_showed_path(@event, ticket), method: :patch, class: 'btn btn-primary' %>
-        <% elsif ticket.status == 'Show up' %>
-          <%= link_to event_mark_as_attendee_path(@event, ticket), method: :patch do %>
-            <i class="fas fa-undo-alt"></i>
-          <% end %>
-        <% end %>
-      <% end %>
-      </p>
+      <div class="user-event-status">
+        <div class="status">
+          <% if ticket.status.nil? %>
+            <i class="fas fa-check"></i>
+            <i class="fas fa-times"></i>
+            <% else %>
+            <% if ticket.status != 'Show up' %>
+            <%= link_to event_mark_as_showed_path(@event, ticket), method: :patch do %>
+            <i class="fas fa-check" style='color: lightgrey !important; font-size: 2vw;'></i>
+            <% end %>
+            <i class="fas fa-times" style = 'color: red; font-size: 2vw;'></i>
+            <% elsif ticket.status == 'Show up' %>
+            <i class="fas fa-check" style="color = green; font-size: 2vw;"></i>
+            <%= link_to event_mark_as_attendee_path(@event, ticket), method: :patch do %>
+            <i class="fas fa-times" style='color: lightgrey !important; font-size: 2vw;'></i>
+            <% end %>
+            <% end %>
+            <% end %>
+        </div>
+        <div class="users-details">
+         <%= ticket.user.first_name %> <%= ticket.user.last_name %>
+        </div>
+      </div>
     <% end  %>
+    </div>
   </div>
 </div>

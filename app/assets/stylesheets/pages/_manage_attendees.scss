@@ -1,0 +1,16 @@
+.row{
+
+}
+
+.status{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.user-event-status{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    background: white;
+    padding: 10px;
+}
