@@ -1,10 +1,16 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
+}
+
+.interactive_bar {
+   position: sticky;
+   top: 0;
+   z-index: 100;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,7 +18,8 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 60px;
+  width: 80px;
+  height: auto;
 }
 
 .btn_nav{
@@ -21,7 +28,7 @@
 }
 
 .active_nav {
-    color: #0A2463;
+    color: #0A2463 !important;
     text-decoration: none;
     border-bottom: 2px solid #E62E2D;
     transition: all ease-in-out 100ms;
@@ -31,17 +38,20 @@
   color: #86807F;
   margin: 0px 10px;
   padding: 24px;
+  font-size: 18px;
   &:hover{
     color: #0A2463;
     text-decoration: none;
     border-bottom: 2px solid #E62E2D;
     transition: all ease-in-out 100ms;
   }
+
   .fas{
-    font-size: 2vw;
+    font-size: 18px;
   }
   span{
-    padding: 5px;
+    padding: 2px;
+
   }
 }
 
