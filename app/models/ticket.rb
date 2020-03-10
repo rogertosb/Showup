@@ -3,21 +3,21 @@ class Ticket < ApplicationRecord
   belongs_to :user
 
   def attendee!
-    self.status = 'Attendee'
+    self.status = 'Attending'
     save!
   end
 
   def attendee?
-    status == 'Attendee'
+    status == 'Attending'
   end
 
   def showup!
-    self.status = 'Show up'
+    self.status = 'Showed up'
     save!
   end
 
   def showup?
-    status == 'Show up'
+    status == 'Showed up'
   end
 
   def cancel!

@@ -8,7 +8,7 @@
   <div class="container">
     <h1><%= @event.title %></h1>
     <p><%= @event.start_time %></p>
-    <h2>Attendees - <%= @event.tickets.select{ |ticket| ticket.status == 'Show up'}.count %> / <%= @event.tickets.size %></h2>
+    <h2>Attendees - <%= @event.tickets.select { |ticket| ticket.showup? }.count %> / <%= @event.tickets.size %></h2>
     <div class="row">
     <% @event.tickets.each do |ticket| %>
       <div class="user-event-status">
@@ -17,12 +17,12 @@
             <i class="fas fa-check"></i>
             <i class="fas fa-times"></i>
             <% else %>
-            <% if ticket.status != 'Show up' %>
+            <% if !ticket.showup? %>
             <%= link_to event_mark_as_showed_path(@event, ticket), method: :patch do %>
             <i class="fas fa-check" style='color: lightgrey !important; font-size: 2vw;'></i>
             <% end %>
             <i class="fas fa-times" style = 'color: red; font-size: 2vw;'></i>
-            <% elsif ticket.status == 'Show up' %>
+            <% elsif ticket.showup? %>
             <i class="fas fa-check" style="color = green; font-size: 2vw;"></i>
             <%= link_to event_mark_as_attendee_path(@event, ticket), method: :patch do %>
             <i class="fas fa-times" style='color: lightgrey !important; font-size: 2vw;'></i>
