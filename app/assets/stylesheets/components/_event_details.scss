@@ -1,6 +1,7 @@
 .top-line {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 700px auto;
+  grid-template-rows: 350px;
 }
 
 // .event_details_image img {
@@ -27,6 +28,7 @@
 .description {
   padding-left: 15px;
   padding-top: 10px;
+  position: relative;
 }
 
 .countdown {
@@ -38,7 +40,7 @@
 .bottom-line {
   background-color: white;
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 700px auto;
 }
 
 .description-and-share {
@@ -57,6 +59,13 @@
 .button-and-text {
   display: flex;
   align-items: center;
+  position: absolute;
+  bottom: 10px;
+}
+
+.stake-info {
+  position: absolute;
+  bottom: 50px;
 }
 
 #demo {
