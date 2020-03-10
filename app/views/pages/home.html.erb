@@ -1,7 +1,8 @@
 <div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.nh-hotels.net/nh_meetings-small_meeting_room.jpg?crop=8244:2476;12,1179&resize=2000:600&output-quality=75&resize=*:*);">
   <div class="container">
-    <h1><strong>Show up</strong></h1>
-    <h3>My milkshake brings all the attendees to the yard</h3>
+    <h3>Accurate events with better participation</h3>
+    <p> Showup incentivizes a higher attendance rate by using stakes </p>
+
     <% if !current_user %>
       <%= link_to 'Start now', new_user_registration_path, class: "btn btn-flat" %>
     <% end %>
@@ -17,3 +18,11 @@
     <% end %>
   </div>
 </div>
+
+  <div class="container">
+      <h2 class="howitworks"> This is how show-up works</h2>
+        <div class="home-cards col-sm">
+          <%= image_tag 'pain.png' %>
+            <p>this image will be replace by Guillaume</p>
+            <p>We will also provide information here in writing</p>
+        </div>
