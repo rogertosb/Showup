@@ -1,6 +1,6 @@
 <div class="top-line">
-  <div class="event_details_image mb-5">
-    <%= cl_image_tag @event.photo.key %>
+  <div class="event_details_image " style= "background-image: url(<%= cl_image_path @event.photo.key %>);">
+    <%#= cl_image_tag @event.photo.key %>
   </div>
   <div class="description">
       <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
@@ -8,12 +8,13 @@
         <p><%= @event.title %></p>
       </div>
       <p> by <%= @event.user.organizer_name %></p>
-      <p> Stake: <%= @event.stake %> € <i class="far fa-question-circle info-popup"></i> </p>
-
+      <div class="stake-info">
+      <p> Stake: <%= @event.stake %> € <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="Tooltip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdn top"></i> </p>
+      </div>
       <% if !@user %>
         <%= link_to 'Login', new_user_session_path(), class: 'btn btn-primary' %>
       <% elsif @ticket.present? && @ticket.attendee? %>
-        <div class="button-and-text my-5">
+        <div class="button-and-text">
           <div>
             <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch, data: { confirm: 'Are you sure to delete your ticket ?' } %>
           </div>
@@ -23,7 +24,7 @@
         </div>
       <% elsif current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %>
 
-        <div class="button-and-text my-5">
+        <div class="button-and-text">
           <div>
          <%= form_tag orders_path do %>
             <%= hidden_field_tag 'event_id', @event.id %>
@@ -61,7 +62,7 @@
     <div class="practical-info">
       <h4>Practical information</h4>
       <p><i class="far fa-clock pi-far"></i> <%= @event.start_time.strftime("%a, %d %b %Y") %> | <%= @event.start_time.to_s[-12..-8] %> <i class="fas fa-arrow-right"></i> <%= @event.end_time.to_s[-12..-8] %></p>
-      <p><i class="fas fa-map-marker-alt pi-far" ></i> <a href="http://maps.google.com/maps/place/<%= URI::encode(@event.location) %>" target="_blank">  <i class="fas fa-map-marker-alt" ></i> <%= @event.location %></a></p>
+      <p><i class="fas fa-map-marker-alt pi-far" ></i> <a href="http://maps.google.com/maps/place/<%= URI::encode(@event.location) %>" target="_blank">  <%= @event.location %></a></p>
       <p><i class="fas fa-glass-martini-alt pi-far"></i> <%= @event.drink %></p>
       <p><i class="fas fa-utensils pi-far"></i> <%= @event.food %></p>
       <p><i class="fas fa-user-friends pi-far"></i> <%= @available_tickets %> / <%= @event.number_max_of_attendees %> Attendees </p>
