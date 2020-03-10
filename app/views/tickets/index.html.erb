@@ -1,13 +1,6 @@
-<div class="top-line">
-  <!-- <div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key %>');">
-    <div class="event-show ml-5">
-      <h1><%= @event.title %></h1>
-    </div> -->
-  </div>
-
-  <div class="container">
+<div class="container">
     <h1><%= @event.title %></h1>
-    <p><%= @event.start_time %></p>
+    <p><%= @event.start_time.strftime("%a, %d %b %Y") %></p>
     <h2>Attendees - <%= @event.tickets.select{ |ticket| ticket.status == 'Show up'}.count %> / <%= @event.tickets.size %></h2>
     <div class="row">
     <% @event.tickets.each do |ticket| %>
@@ -36,5 +29,6 @@
       </div>
     <% end  %>
     </div>
+    <%= link_to 'Back to event', event_path(@event), class: "btn btn-flat" %>
   </div>
 </div>
