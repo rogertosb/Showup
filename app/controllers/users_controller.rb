@@ -22,14 +22,14 @@ class UsersController < ApplicationController
  def switch_to_organizer
     current_user.user_type = 'Organizer'
     current_user.save
-    redirect_to user_path(current_user)
+    redirect_to dashboard_path
 
   end
 
   def switch_to_attendee
     current_user.user_type = 'Attendee'
     current_user.save
-    redirect_to user_path(current_user)
+    redirect_to dashboard_path
   end
 
   private
