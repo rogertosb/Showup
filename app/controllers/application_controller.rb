@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    sign_up_details_path
+    sign_up_details_path if @user.organizer? && @user.organizer_name.nil?
+    sign_up_details_path if @user.attendee? && @user.first_name.nil?
   end
 end

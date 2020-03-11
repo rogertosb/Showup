@@ -29,7 +29,17 @@ class EventsController < ApplicationController
     @user = current_user
     @ticket = @event.tickets.find_by(user: @user)
     @available_tickets = @event.tickets.select { |x| x.attendee? || x.showup? }.size
+    @stake_earned = stake_earned
   end
+
+  def stake_earned
+     absent_people = @event.tickets.select { |ticket| ticket.attendee? }.size
+     stake_value = @event.stake
+     money_before_fee = absent_people * stake_value
+     money_after_fee = money_before_fee - (money_before_fee * 0.3)
+     return money_after_fee
+  end
+
 
   def edit
   end
