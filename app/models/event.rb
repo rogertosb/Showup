@@ -3,6 +3,17 @@ class Event < ApplicationRecord
   has_many :tickets, dependent: :destroy
   has_one_attached :photo
 
+  validates :title, presence: true
+  validates :location, presence: true
+  validates :description, presence: true
+  validates :banner, presence: true
+  validates :food, presence: true
+  validates :drink, presence: true
+  validates :number_max_of_attendees, presence: true
+  validates :stake, presence: true
+  validates :start_time, presence: true
+  validates :end_time, presence: true
+
   monetize :stake_cents
 
   geocoded_by :location
