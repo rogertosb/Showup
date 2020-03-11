@@ -48,7 +48,8 @@
 }
 
 .description-and-share {
-  word-break: break-all;
+  word-break: break-word;
+  text-align: justify;
   margin-top: 10px;
   margin-left: 50px;
   margin-right: 50px;

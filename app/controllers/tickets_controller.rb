@@ -47,6 +47,8 @@ class TicketsController < ApplicationController
   def event_over
     event = Event.find(params[:event_id])
     tickets = event.tickets
+    event.close!
+    event.save!
     tickets.each do |ticket|
       if ticket.showup?
         order = Order.find(ticket.order_id)
@@ -58,6 +60,7 @@ class TicketsController < ApplicationController
         order.save!
       end
     end
+    redirect_to event_path(event)
   end
 
   private

@@ -22,4 +22,13 @@ class Event < ApplicationRecord
   def future?
     start_time > DateTime.current.to_date
   end
+
+  def close!
+    self.status = 'Closed'
+    save!
+  end
+
+  def closed?
+    self.status == 'Closed'
+  end
 end
