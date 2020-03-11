@@ -1,4 +1,5 @@
 <div class="container-form">
+
   <%= simple_form_for @event do |f| %>
     <%= f.input :title, label: 'Title', required: true, error: 'Adding a title is mandatory'%>
     <%= f.input :description, label: 'Description', required: true, error: 'Adding a description is mandatory' %>
@@ -19,3 +20,4 @@
     <%= f.button :submit, class: 'btn btn-primary' %>
   <% end %>
 </div>
+

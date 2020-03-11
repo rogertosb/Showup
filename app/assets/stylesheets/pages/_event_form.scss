@@ -8,6 +8,28 @@
 }
 
 .container-form {
-  width: 600px;
-  margin: 10px auto;
+  max-width: 700px;
+  background: #FAFAFA;
+  padding: 30px;
+  margin: 50px auto;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 2px solid #305A72;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
 }
+
+
+.create_event_title {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+ font-family: 'Roboto', sans-serif;
+  color: #0A2463;
+  margin-top: 15px;
+  border-bottom-style: ridge;
+  border-bottom-color: #E62E2D;
+}
+
