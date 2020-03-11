@@ -11,7 +11,7 @@
         </div>
         <p> by <%= @event.user.organizer_name %></p>
         <div class="stake-info">
-          <p> Stake: <%= @event.stake %> € <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="Tooltip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdn top"></i> </p>
+          <p> Stake: <%= @event.stake %> € <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The stake is your commitment to the event; if you do not show up, the stake sum is withdrawn from your card. When your attendance is recorded at the event, the sum is not withdrawn from your card. If you cancel 5 days before the event, the stake amount is not withdrawn from your card."></i> </p>
         </div>
         <% if !@user %>
           <%= link_to 'Login', new_user_session_path(), class: 'btn btn-primary' %>
