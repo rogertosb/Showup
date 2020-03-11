@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #0A2463;
   position: fixed;
   top: 0;
   width: 100%;
@@ -28,22 +28,24 @@
 }
 
 .active_nav {
-    color: #0A2463 !important;
+    color: white !important;
     text-decoration: none;
     border-bottom: 2px solid #E62E2D;
     transition: all ease-in-out 100ms;
+    font-weight: 550;
 }
 
 .login_hover{
-  color: #86807F;
+  color: #D8D8D8;
   margin: 0px 10px;
   padding: 24px;
   font-size: 18px;
   &:hover{
-    color: #0A2463;
+    color: white;
     text-decoration: none;
     border-bottom: 2px solid #E62E2D;
     transition: all ease-in-out 100ms;
+    font-weight: 550;
   }
 
   .fas{
@@ -72,8 +74,9 @@
 }
 
 .nav-item{
-  width:40px;
-  height:40px;
+
+  width:60px;
+  height:60px;
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -96,3 +99,21 @@ a:hover, a.active {
 .navbar-left {
       align-items: center;
 }
+
+// .dropdown img {
+//   width: 60px;
+//   height: 60px;
+// }
+
+.avatar.dropdown-toggle {
+  width: 60px;
+  height: 60px;
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
+  transition: 0.5s;
+    &:hover{
+    border-color: #E62E2D;
+  }
+}
+
