@@ -11,6 +11,7 @@
 Event.destroy_all
 User.destroy_all
 Ticket.destroy_all
+Order.destroy_all
 
 # --------------------------------------------------------------------------------------------#
 
@@ -241,18 +242,28 @@ e6.photo.attach(io: file6, filename: 'nes.png', content_type: 'image/png')
 
 # --------------------------------------------------------------------------------------------#
 
+# Creates orders
+
+order_1 = Order.create!(state: 'requires_capture', user_id: a1.id, event_id: e1.id, amount_cents: e1.stake*100)
+order_2 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e1.id, amount_cents: e1.stake*100)
+order_3 = Order.create!(state: 'requires_capture', user_id: a3.id, event_id: e1.id, amount_cents: e1.stake*100)
+order_4 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e1.id, amount_cents: e1.stake*100)
+order_5 = Order.create!(state: 'requires_capture', user_id: a1.id, event_id: e2.id, amount_cents: e2.stake*100)
+order_6 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e2.id, amount_cents: e2.stake*100)
+order_7 = Order.create!(state: 'requires_capture', user_id: a3.id, event_id: e2.id, amount_cents: e2.stake*100)
+order_8 = Order.create!(state: 'requires_capture', user_id: a3.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_9 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e4.id, amount_cents: e4.stake*100)
+order_10 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e4.id, amount_cents: e4.stake*100)
+
 # Creates reservations
 
-
-t1 = Ticket.create!(status: "Attendee", attending_event: e1, user: a1)
-t2 = Ticket.create!(status: "Attendee", attending_event: e1, user: a2)
-t3 = Ticket.create!(status: "Attendee", attending_event: e1, user: a3)
-t4 = Ticket.create!(status: "Attendee", attending_event: e1, user: a4)
-t5 = Ticket.create!(status: "Attendee", attending_event: e2, user: a1)
-t6 = Ticket.create!(status: "Attendee", attending_event: e2, user: a2)
-t7 = Ticket.create!(status: "Attendee", attending_event: e2, user: a3)
-t8 = Ticket.create!(status: "Attendee", attending_event: e3, user: a3)
-t9 = Ticket.create!(status: "Attendee", attending_event: e4, user: a2)
-t10 = Ticket.create!(status: "Attendee", attending_event: e4, user: a4)
-
-
+t1 = Ticket.create!(status: "Attending", attending_event: e1, user: a1, order_id: order_1.id)
+t2 = Ticket.create!(status: "Attending", attending_event: e1, user: a2, order_id: order_2.id)
+t3 = Ticket.create!(status: "Attending", attending_event: e1, user: a3, order_id: order_3.id)
+t4 = Ticket.create!(status: "Attending", attending_event: e1, user: a4, order_id: order_4.id)
+t5 = Ticket.create!(status: "Attending", attending_event: e2, user: a1, order_id: order_5.id)
+t6 = Ticket.create!(status: "Attending", attending_event: e2, user: a2, order_id: order_6.id)
+t7 = Ticket.create!(status: "Attending", attending_event: e2, user: a3, order_id: order_7.id)
+t8 = Ticket.create!(status: "Attending", attending_event: e3, user: a3, order_id: order_8.id)
+t9 = Ticket.create!(status: "Attending", attending_event: e4, user: a2, order_id: order_9.id)
+t10 = Ticket.create!(status: "Attending", attending_event: e4, user: a4, order_id: order_10.id)
