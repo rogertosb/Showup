@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container shadow-container">
   <div class="top-line">
     <div class="event_details_image " style= "background-image: url(<%= cl_image_path @event.photo.key %>);">
       <%#= cl_image_tag @event.photo.key %>
@@ -60,9 +60,9 @@
           <p> number of abscent people : <strong><%= @event.tickets.select { |ticket| ticket.attendee? }.size %></strong></p>
           <p> Stake received due to abscent people : <strong><%= @money_after_fee %> € </strong></p>
           </div>
-      </div>
+
     <% end %>
-    </div>
+
   <div class="bottom-line">
     <div class="description-and-share">
       <h4>Description</h4>
@@ -71,7 +71,9 @@
         <div class="share-some">
           <%= social_share_button_tag(@event.title) %>
         </div>
+      </div>
     </div>
+
 
     <div class="practical-info">
       <h4>Practical information</h4>

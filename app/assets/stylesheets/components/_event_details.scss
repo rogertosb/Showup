@@ -1,6 +1,12 @@
-// .page-container {
-//   width: 1112px;
-// }
+.shadow-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 5px lightgrey;
+  border-radius: 5px;
+
+
+}
 
 .top-line {
   display: grid;
@@ -15,6 +21,7 @@
 // }
 
 .event_details_image {
+  margin-top:15px;
   background-repeat: none;
   background-size: cover;
 
@@ -52,6 +59,8 @@
   margin-top: 10px;
   margin-left: 50px;
   margin-right: 50px;
+  margin-bottom: 20px;
+
 }
 
 .practical-info {
