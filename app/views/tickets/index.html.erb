@@ -3,7 +3,7 @@
     <p><%= @event.start_time.strftime("%a, %d %b %Y") %></p>
     <h2>Attendees - <%= @event.tickets.select { |ticket| ticket.showup? }.count %> / <%= @event.tickets.size %></h2>
     <div class="row">
-    <% @event.tickets.each do |ticket| %>
+    <% @event.tickets.sort_by { |ticket| ticket.user.last_name }.each do |ticket| %>
       <div class="user-event-status">
         <div class="status">
           <% if ticket.status.nil? %>
@@ -24,7 +24,7 @@
           <% end %>
         </div>
         <div class="users-details">
-         <%= ticket.user.first_name %> <%= ticket.user.last_name %>
+          <%= ticket.user.last_name %> <%= ticket.user.first_name %>
         </div>
       </div>
     <% end  %>

@@ -45,10 +45,25 @@
   opacity: 0.9;
   transition: 0.5s;
   border-radius:7px;
-  // padding:10px;
   &:hover {
   background-color: #0A2463;
   opacity: 1;
   color:#E62E2D;
   }
+}
+
+.same-line {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container {
+  position: relative;
+}
+
+.button-right {
+  position: absolute;
+  right: 10px;
+  // background-color: red;
 }

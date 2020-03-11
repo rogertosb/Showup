@@ -1,7 +1,16 @@
 <div class="container">
 
     <div class="bm-5">
-      <h3>Upcoming events</h3>
+    <div class="same-line">
+      <div class="title">
+        <h3>Up coming events</h3>
+      </div>
+        <% if current_user.organizer? %>
+          <div class="button-right">
+            <%= link_to "Create a new event", new_event_path, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+    </div>
     </div>
     <div class="row">
     <% if @user.attendee? %>
@@ -51,8 +60,5 @@
     <% end %>
     </div>
   <div class="mb-5">
-    <% if current_user.organizer? %>
-      <%= link_to "Create a new event", new_event_path, class: 'btn btn-primary' %>
-    <% end %>
   </div>
 </div>
