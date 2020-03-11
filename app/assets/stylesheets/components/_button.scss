@@ -40,3 +40,15 @@
   color: white;
 }
 
+.btn-primary {
+  background-color: #0A2463;
+  opacity: 0.9;
+  transition: 0.5s;
+  border-radius:7px;
+  // padding:10px;
+  &:hover {
+  background-color: #0A2463;
+  opacity: 1;
+  color:#E62E2D;
+  }
+}

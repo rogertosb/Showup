@@ -64,6 +64,11 @@
             <% end %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              <% if current_user.attendee? %>
+                <%= link_to 'Switch to Organizer', user_switch_to_organizer_path(current_user), method: :patch, class: "dropdown-item" %>
+              <% elsif current_user.organizer? %>
+                  <%= link_to 'Switch to Attendee', user_switch_to_attendee_path(current_user), method: :patch, class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item" %>
             </div>
           </li>
