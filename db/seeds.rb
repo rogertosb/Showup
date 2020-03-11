@@ -254,6 +254,9 @@ order_7 = Order.create!(state: 'requires_capture', user_id: a3.id, event_id: e2.
 order_8 = Order.create!(state: 'requires_capture', user_id: a3.id, event_id: e3.id, amount_cents: e3.stake*100)
 order_9 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e4.id, amount_cents: e4.stake*100)
 order_10 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e4.id, amount_cents: e4.stake*100)
+order_11 = Order.create!(state: 'requires_capture', user_id: a1.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_12 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_13 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e3.id, amount_cents: e3.stake*100)
 
 # Creates reservations
 
@@ -267,3 +270,6 @@ t7 = Ticket.create!(status: "Attending", attending_event: e2, user: a3, order_id
 t8 = Ticket.create!(status: "Attending", attending_event: e3, user: a3, order_id: order_8.id)
 t9 = Ticket.create!(status: "Attending", attending_event: e4, user: a2, order_id: order_9.id)
 t10 = Ticket.create!(status: "Attending", attending_event: e4, user: a4, order_id: order_10.id)
+t11 = Ticket.create!(status: "Attending", attending_event: e3, user: a1, order_id: order_11.id)
+t12 = Ticket.create!(status: "Attending", attending_event: e3, user: a2, order_id: order_12.id)
+t13 = Ticket.create!(status: "Attending", attending_event: e3, user: a4, order_id: order_13.id)
