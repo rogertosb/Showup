@@ -11,6 +11,7 @@
 .container h3 {
   position: relative;
   top: 5;
+  border-bottom: none;
 
 }
 
@@ -33,7 +34,20 @@
   text-align: center;
 }
 
-h3, h4 {
+.container h3 {
+  text-align: left;
+}
+.banner.mb-5 {
+  color: white;
+}
+
+ h4 {
   color: #0A2463;
   margin-top: 15px;
+}
+
+.bannertext {
+  font-weight: bolder;
+  color: white;
+  text-align: left;
 }

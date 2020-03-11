@@ -63,12 +63,19 @@
   margin-bottom: 20px;
 
 }
+.description-and-share h4 {
+  text-align: left;
+  border-bottom-style: none;
+  }
 
 .practical-info {
   padding-left: 15px;
   padding-top: 10px;
 }
-
+.practical-info h4 {
+   text-align: left;
+  border-bottom-style: none;
+}
 
 .button-and-text {
   display: flex;
@@ -93,7 +100,7 @@
 }
 
 
-h2, h3, h4 {
+h2, h3{
  font-family: 'Roboto', sans-serif;
   color: #0A2463;
   margin-top: 15px;
