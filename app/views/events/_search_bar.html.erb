@@ -1,11 +1,11 @@
 <div class="container my-5 search-form">
   <div class="title">
-    <h4>Search for events</h4>
-  </div>
   <div class="hz">
+    <h4>Search for events</h4>
     <%= simple_form_for :search, url: events_path, method: "GET", html: { class: 'form-inline' } do |f| %>
         <%= f.input :title, input_html: {value: ""}, label: '' %>
         <%= f.submit "Search", class: "btn btn-primary" %>
     <% end %>
+  </div>
   </div>
 </div>
