@@ -72,3 +72,28 @@
     }
   }
 }
+
+.button-create-home {
+  .btn-primary {
+    background-color: red;
+    border: none;
+    color: white;
+    transition: 0s;
+    font-size: 18px;
+    &:hover {
+    }
+  }
+}
+
+
+.search-form-home {
+  .btn-primary {
+    background-color: red;
+    border: none;
+    color: white;
+    transition: 0s;
+    font-size: 18px;
+    &:hover {
+    }
+  }
+}

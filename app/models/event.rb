@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :location, presence: true
   validates :description, presence: true
-  validates :banner, presence: true
+  validates :photo, presence: true
   validates :food, presence: true
   validates :drink, presence: true
   validates :number_max_of_attendees, presence: true

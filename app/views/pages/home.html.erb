@@ -6,6 +6,14 @@
 
     <% if !current_user %>
       <%= link_to 'Start now', new_user_registration_path, class: "btn btn-flat" %>
+    <% elsif current_user.attendee? %>
+      <div class="search-form-home">
+        <%= render './events/search_bar' %>
+      </div>
+    <% elsif current_user.organizer? %>
+      <div class="button-create-home">
+        <%= link_to "Create a new event", new_event_path, class: 'btn btn-primary' %>
+      </div>
     <% end %>
   </div>
 </div>
