@@ -3,52 +3,65 @@
     <div class="event_details_image " style= "background-image: url(<%= cl_image_path @event.photo.key %>);">
       <%#= cl_image_tag @event.photo.key %>
     </div>
-    <div class="description">
-      <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
-      <div class="title">
-        <p><%= @event.title %></p>
-      </div>
-      <p> by <%= @event.user.organizer_name %></p>
-      <div class="stake-info">
-        <p> Stake: <%= @event.stake %> € <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="Tooltip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdn top"></i> </p>
-      </div>
-      <% if !@user %>
-        <%= link_to 'Login', new_user_session_path(), class: 'btn btn-primary' %>
-      <% elsif @ticket.present? && @ticket.attendee? %>
-        <div class="button-and-text">
-          <div>
-            <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch, data: { confirm: 'Are you sure to delete your ticket ?' } %>
-          </div>
-          <div class="countdown">
-            You have a ticket for this event <i class="fas fa-check"></i>
-          </div>
+    <% if @event.future? %>
+      <div class="description">
+        <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
+        <div class="title">
+          <p><%= @event.title %></p>
         </div>
-      <% elsif current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %>
-        <div class="button-and-text">
-          <div>
-            <%= form_tag orders_path do %>
-              <%= hidden_field_tag 'event_id', @event.id %>
-              <%= submit_tag 'Attend', class: 'btn btn-primary' %>
+        <p> by <%= @event.user.organizer_name %></p>
+        <div class="stake-info">
+          <p> Stake: <%= @event.stake %> € <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="Tooltip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdtip odsqsdqsdn top"></i> </p>
+        </div>
+        <% if !@user %>
+          <%= link_to 'Login', new_user_session_path(), class: 'btn btn-primary' %>
+        <% elsif @ticket.present? && @ticket.attendee? %>
+          <div class="button-and-text">
+            <div>
+              <%= link_to 'Cancel', event_mark_as_cancelled_path(@event, @ticket), class: 'btn btn-danger', method: :patch, data: { confirm: 'Are you sure to delete your ticket ?' } %>
+            </div>
+            <div class="countdown">
+              You have a ticket for this event <i class="fas fa-check"></i>
+            </div>
+          </div>
+        <% elsif current_user.attendee? && (@ticket.nil? || (!@ticket.attendee? && !@ticket.showup?)) %>
+          <div class="button-and-text">
+            <div>
+              <%= form_tag orders_path do %>
+                <%= hidden_field_tag 'event_id', @event.id %>
+                <%= submit_tag 'Attend', class: 'btn btn-primary' %>
+              <% end %>
+            </div>
+            <div class="countdown">
+              <%= render 'countdown' %>
+            </div>
+          </div>
+        <% end %>
+
+        <% if !@user %>
+        <% elsif @user.organizer? %>
+          <div class="my-5">
+            <% if current_user.organizer? && current_user.organized_events.include?(@event) %>
+              <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
+              <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
             <% end %>
           </div>
-          <div class="countdown">
-            <%= render 'countdown' %>
+        <% end %>
+      </div>
+    <% elsif @user.organizer? && @user.organized_events.include?(@event) %>
+      <div class="description">
+          <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
+          <div class="title">
+            <p><%= @event.title %></p>
           </div>
-        </div>
-      <% end %>
-
-      <% if !@user %>
-      <% elsif @user.organizer? %>
-        <div class="my-5">
-          <% if current_user.organizer? && current_user.organized_events.include?(@event) %>
-            <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
-            <%= link_to "Manage attendees", event_tickets_path(@event), class: 'btn btn-primary' %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
+          <p><strong> by <%= @event.user.organizer_name %></strong></p>
+          <p> number of attendees : <strong><%= @event.tickets.select { |ticket| ticket.showup? }.size %></strong></p>
+          <p> number of people who canceled : <strong><%= @event.tickets.select { |ticket| ticket.canceled? }.size %></strong></p>
+          <p> number of abscent people : <strong><%= @event.tickets.select { |ticket| ticket.attendee? }.size %></strong></p>
+          <p> Stake received due to abscent people : <strong><%= @money_after_fee %> € </strong></p>
+          </div>
+      </div>
+    <% end %>
   <div class="bottom-line">
     <div class="description-and-share">
       <h4>Description</h4>

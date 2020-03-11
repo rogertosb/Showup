@@ -1,13 +1,6 @@
-<div class="top-line">
-  <!-- <div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key %>');">
-    <div class="event-show ml-5">
-      <h1><%= @event.title %></h1>
-    </div> -->
-  </div>
-
-  <div class="container">
+<div class="container">
     <h1><%= @event.title %></h1>
-    <p><%= @event.start_time %></p>
+    <p><%= @event.start_time.strftime("%a, %d %b %Y") %></p>
     <h2>Attendees - <%= @event.tickets.select { |ticket| ticket.showup? }.count %> / <%= @event.tickets.size %></h2>
     <div class="row">
     <% @event.tickets.each do |ticket| %>
@@ -16,19 +9,19 @@
           <% if ticket.status.nil? %>
             <i class="fas fa-check"></i>
             <i class="fas fa-times"></i>
-            <% else %>
+          <% else %>
             <% if !ticket.showup? %>
-            <%= link_to event_mark_as_showed_path(@event, ticket), method: :patch do %>
-            <i class="fas fa-check" style='color: lightgrey !important; font-size: 2vw;'></i>
+              <%= link_to event_mark_as_showed_path(@event, ticket), method: :patch do %>
+              <i class="fas fa-check" style='color: lightgrey !important; font-size: 2vw;'></i>
             <% end %>
             <i class="fas fa-times" style = 'color: red; font-size: 2vw;'></i>
-            <% elsif ticket.showup? %>
+          <% elsif ticket.showup? %>
             <i class="fas fa-check" style="color = green; font-size: 2vw;"></i>
-            <%= link_to event_mark_as_attendee_path(@event, ticket), method: :patch do %>
+              <%= link_to event_mark_as_attendee_path(@event, ticket), method: :patch do %>
             <i class="fas fa-times" style='color: lightgrey !important; font-size: 2vw;'></i>
-            <% end %>
-            <% end %>
-            <% end %>
+          <% end %>
+          <% end %>
+          <% end %>
         </div>
         <div class="users-details">
          <%= ticket.user.first_name %> <%= ticket.user.last_name %>
@@ -36,6 +29,7 @@
       </div>
     <% end  %>
     </div>
+    <%= link_to 'Back to event', event_path(@event), class: "btn btn-flat" %>
     <%= link_to 'End of the event', event_event_over_path(@event), method: :patch, class: 'btn btn-primary' %>
   </div>
 </div>
