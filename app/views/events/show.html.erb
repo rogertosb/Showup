@@ -4,8 +4,6 @@
   </div>
 
   <% if @event.future?  %>
-
-  <%= render "future_event", event: @event %>
     <div class="description">
           <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
           <div class="title">
@@ -51,7 +49,7 @@
           <% end %>
           </div>
     </div>
-  <% else %>
+  <% elsif @user.organizer? && @user.events.include?(@event) %>
     <div class="description">
           <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
           <div class="title">
@@ -61,7 +59,7 @@
           <p> number of attendees : <strong><%= @event.tickets.select { |ticket| ticket.showup? }.size %></strong></p>
           <p> number of people who canceled : <strong><%= @event.tickets.select { |ticket| ticket.canceled? }.size %></strong></p>
           <p> number of abscent people : <strong><%= @event.tickets.select { |ticket| ticket.attendee? }.size %></strong></p>
-          <p> Stake received due to abscent people : <strong><%= @stake_earned %> € </strong></p>
+          <p> Stake received due to abscent people : <strong><%= @money_after_fee %> € </strong></p>
           </div>
       </div>
   <% end %>
