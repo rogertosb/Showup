@@ -11,7 +11,12 @@
             <h2><%= event.title %></h2>
             <p><%= event.user.organizer_name %></p>
           </div>
-          <p><i class="fas fa-map-marker-alt"></i> <%= event.location %></p>
+          <p><i class="fas fa-map-marker-alt"></i>
+            <% if event.location.length > 42 %>
+              <%= event.location[0..42] %> ...</p>
+            <% else %>
+              <%= event.location %>
+            <% end %>
         </div>
       </div>
     </div>
