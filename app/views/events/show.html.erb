@@ -83,8 +83,23 @@
       <h4>Practical information</h4>
       <p><i class="far fa-clock pi-far"></i> <%= @event.start_time.strftime("%a, %d %b %Y") %> | <%= @event.start_time.to_s[-12..-8] %> <i class="fas fa-arrow-right"></i> <%= @event.end_time.to_s[-12..-8] %></p>
       <p><i class="fas fa-map-marker-alt pi-far" ></i> <a href="http://maps.google.com/maps/place/<%= URI::encode(@event.location) %>" target="_blank">  <%= @event.location %></a></p>
-      <p><i class="fas fa-glass-martini-alt pi-far"></i> <%= @event.drink %></p>
-      <p><i class="fas fa-utensils pi-far"></i> <%= @event.food %></p>
+      <p><i class="fas fa-glass-martini-alt pi-far"></i> <%= @event.drink %>
+        <% if @event.drink.capitalize == 'None' %>
+          <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The organizer does not provide free drinks to participants."></i></p>
+        <% elsif @event.drink.capitalize == 'Free' %>
+          <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The organizer provides free drinks to participants."></i></p>
+          <% elsif @event.drink.capitalize == 'Paid' %>
+          <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The organizer does not provide free drinks to participants, however it is possible to purchase drinks at the event."></i></p>
+        <% end %>
+      <p><i class="fas fa-utensils pi-far"></i> <%= @event.food %>
+        <% if @event.food.capitalize == 'None' %>
+          <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The organizer does not provide free food to participants."></i></p>
+        <% elsif @event.food.capitalize == 'Free' %>
+          <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The organizer provides free food to participants."></i></p>
+          <% elsif @event.food.capitalize == 'Paid' %>
+          <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The organizer does not provide free food to participants, however it is possible to purchase food at the event."></i></p>
+        <% end %>
+      </p>
       <p><i class="fas fa-user-friends pi-far"></i> <%= @available_tickets %> / <%= @event.number_max_of_attendees %> Attendees </p>
     </div>
   </div>

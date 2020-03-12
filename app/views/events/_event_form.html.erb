@@ -12,7 +12,7 @@
         collection: ["None", "Free", "Paid"], required: true, error: 'Please indicate whether drinks will be offered at the event' %>
     </div>
 
-    <%= f.input :number_max_of_attendees, required: true, label: 'Maximum number of attendees', error: 'number_max_of_attendees error' %>
+    <%= f.input :number_max_of_attendees, required: true, label: 'Maximum number of attendees', error: 'number_max_of_attendees error' %> <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The stake is your commitment to the event; if you do not show up, the stake sum is withdrawn from your card. When your attendance is recorded at the event, the sum is not withdrawn from your card. If you cancel 5 days before the event, the stake amount is not withdrawn from your card."></i>
     <%= f.input :stake, label: 'Stake', required: true, error: 'Please provide a stake sum as an integer' %>
     <%= f.input :start_time, label: 'Start time', required: true, error: 'Selecting a start time for the event is mandatory' %>
     <%= f.input :end_time, label: 'End time', required: true, error: 'Selecting an end time for the event is mandatory' %>
