@@ -2,9 +2,9 @@
   <div class="row py-4">
     <div class="col-md-3"><%#= image_tag @order.teddy.photo_url, width: '100%' %></div>
     <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.event.title %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
+      <h1>Stake confirmation</h1>
+      <p>You will be debited <strong>€ <%= @order.amount %></strong>  in case you <strong> do not</strong> show up at <strong><%= @order.event.title %></strong></p>
+      <button id="pay" class="btn btn-primary">Confirm</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');

@@ -2,12 +2,19 @@
   <div class="row py-4">
     <!-- <div class="col-md-3"><%#= image_tag @order.teddy.photo_url, width: '100%' %></div> -->
     <div class="col">
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
+      <h1>Your order is
+        <% if @order.state == 'requires_capture' %>
+           validated
+        <% else %>
+          <%= @order.state %>
+        <% end %>
+
+        </h1>
       <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>EVENT</strong> <%= @order.event.title %> </li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
+        <li><strong>For:</strong> <%= @order.event.title %> </li><br>
+        <li><strong>Stake:</strong> <%= humanized_money_with_symbol @order.amount %>  <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The stake is your commitment to the event; if you do not show up, the stake sum is withdrawn from your card. When your attendance is recorded at the event, the sum is not withdrawn from your card. If you cancel 5 days before the event, the stake amount is not withdrawn from your card."></i></li>
         </li>
+        <%= link_to 'Back to the event', event_path(@order.event), class: 'btn btn-primary mt-3' %>
       </ul>
     </div>
   </div>
