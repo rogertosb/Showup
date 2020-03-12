@@ -55,9 +55,14 @@
             <p><%= @event.title %></p>
           </div>
           <p><strong> by <%= @event.user.organizer_name %></strong></p>
-          <p> Stake received due to abscent people : <strong><%= @stake_earned %> € </strong></p>
-          <p> Attendees : <%= @event.tickets.select { |ticket| ticket.showup? }.size %> / <%= @event.tickets.size %> <strong>(<%= (@event.tickets.select { |ticket| ticket.showup? }.size.to_f / @event.tickets.size.to_f)*100 %> %)</strong></p>
+          <div class="final-info">
+          <div> Final results </div>
+          <div class="final-title"><p> ATTENDEEES </p></div>
+          <p><%= @event.tickets.select { |ticket| ticket.showup? }.size %> / <%= @event.tickets.size %> <strong>(<%= (@event.tickets.select { |ticket| ticket.showup? }.size.to_f / @event.tickets.size.to_f)*100 %> %)</strong></p>
+          <div class="final-title"><p> CASHBACK </p></div>
+          <p><strong><%= @stake_earned %> € </strong></p>
           <!-- <p> number of people who canceled : <strong><%#= @event.tickets.select { |ticket| ticket.canceled? }.size %></strong></p> -->
+          </div>
           </div>
 
     <% end %>
