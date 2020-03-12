@@ -258,6 +258,29 @@ order_11 = Order.create!(state: 'requires_capture', user_id: a1.id, event_id: e3
 order_12 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e3.id, amount_cents: e3.stake*100)
 order_13 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e3.id, amount_cents: e3.stake*100)
 
+
+
+Order.all.each do |order|
+  url = Rails.application.routes.url_helpers.order_url(order, host: Rails.application.config.action_mailer.default_url_options[:host])
+  pi = Stripe::PaymentIntent.create({ amount: order.amount_cents, currency: 'eur', payment_method_types: ['card'], capture_method: 'manual'})
+  order.update(payment_intent_id: pi.id)
+  pm = Stripe::PaymentMethod.create({type: 'card', card: { number: '4242424242424242', exp_month: 3, exp_year: 2021, cvc: '314' }})
+  Stripe::PaymentIntent.confirm(pi.id, { payment_method: pm })
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Creates reservations
 
 t1 = Ticket.create!(status: "Attending", attending_event: e1, user: a1, order_id: order_1.id)
