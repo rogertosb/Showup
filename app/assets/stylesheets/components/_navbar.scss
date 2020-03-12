@@ -1,3 +1,18 @@
+.current-name {
+    color: white !important;
+    text-decoration: none;
+    border-bottom: 2px solid #0A2463;
+    transition: all ease-in-out 100ms;
+    font-weight: 550;
+      &:hover{
+    color: white;
+    text-decoration: none;
+    border-bottom: 2px solid #0A2463 !important;
+    transition: all ease-in-out 100ms;
+    font-weight: 550;
+  }
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: #0A2463;
@@ -48,6 +63,14 @@
     font-weight: 550;
   }
 
+
+.navbar-name {
+    color: white !important;
+    text-decoration: none;
+    border-bottom: 2px solid #0A2463;
+    transition: all ease-in-out 100ms;
+    font-weight: 550;
+}
   .fas{
     font-size: 18px;
   }

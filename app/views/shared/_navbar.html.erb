@@ -52,9 +52,9 @@
         <% if user_signed_in? %>
             <% if current_user&.avatar.attached? %>
               <% if current_user.organizer? %>
-              <li class="login_hover"> <%= current_user.organizer_name %></li>
+              <li class="login_hover current-name"> <%= current_user.organizer_name %></li>
               <% else %>
-              <li class="login_hover"> <%= current_user.first_name %> <%= current_user.last_name %></li>
+              <li class="login_hover current-name"> <%= current_user.first_name %> <%= current_user.last_name %></li>
               <% end %>
           <!--   <div class="current-name"><%=  current_user.user_type %></div> -->
           <li class="nav-item dropdown" class= "avatar dropdown-toggle" id= "navbarDropdown" data-toggle= "dropdown" aria-haspopup="true", aria-expanded="false" style="background-image: url('<%= cl_image_path current_user.avatar.key %>')">
