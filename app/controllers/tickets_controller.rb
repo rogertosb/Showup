@@ -7,7 +7,7 @@ class TicketsController < ApplicationController
       @search = params["search"]
     if @search.present?
       name = @search["name"]
-      users = @event.users.where("first_name ILIKE ?", "%#{name}%").or(@event.users.where("first_name ILIKE ?", "%#{name}%"))
+      users = @event.users.where("first_name ILIKE ?", "%#{name}%").or(@event.users.where("last_name ILIKE ?", "%#{name}%"))
       @tickets = users.flat_map(&:tickets).select{|ticket|  ticket.event_id == @event.id}
     end
 
