@@ -8,7 +8,7 @@
         <div class="details-trip">
           <p><%= event.start_time.strftime("%a, %d %b %Y") %> | <%= event.start_time.to_s[-12..-8] %> <i class="fas fa-arrow-right"></i> <%= event.end_time.to_s[-12..-8]%></p>
           <div class="details-trip-details">
-            <h2><%= event.title %></h2>
+            <h2 style="text-align: left;"><%= event.title %></h2>
             <p><%= event.user.organizer_name %></p>
           </div>
           <p><i class="fas fa-map-marker-alt"></i> <%= event.location %></p>
