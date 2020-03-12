@@ -9,13 +9,12 @@
           <%= @order.state %>
         <% end %>
 
-        </h1><br><br><br>
+        </h1>
       <ul class="list-unstyled">
-        <li><strong>Created on</strong> <%= @order.created_at.to_date %></li><br>
         <li><strong>For:</strong> <%= @order.event.title %> </li><br>
-        <li><strong>TOTAL:</strong> <%= humanized_money_with_symbol @order.amount %></li>
+        <li><strong>Stake:</strong> <%= humanized_money_with_symbol @order.amount %>  <i class="far fa-question-circle info-popup" data-toggle="tooltip" data-placement="top" title="The stake is your commitment to the event; if you do not show up, the stake sum is withdrawn from your card. When your attendance is recorded at the event, the sum is not withdrawn from your card. If you cancel 5 days before the event, the stake amount is not withdrawn from your card."></i></li>
         </li>
-        <%= link_to 'Back to the event', event_path(@order.event), class: 'btn btn-primary mt-5' %>
+        <%= link_to 'Back to the event', event_path(@order.event), class: 'btn btn-primary mt-3' %>
       </ul>
     </div>
   </div>
