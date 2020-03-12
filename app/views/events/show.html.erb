@@ -3,7 +3,7 @@
     <div class="event_details_image " style= "background-image: url(<%= cl_image_path @event.photo.key %>);">
       <%#= cl_image_tag @event.photo.key %>
     </div>
-    <% if @event.future? %>
+    <% if @event.future? && !@event.closed? %>
       <div class="description">
         <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
         <div class="title">
@@ -39,7 +39,7 @@
         <% end %>
 
         <% if !@user %>
-        <% elsif @user.organizer? %>
+        <% elsif @user.organizer? && !@event.closed? %>
           <div class="my-5">
             <% if current_user.organizer? && current_user.organized_events.include?(@event) %>
               <%= link_to "Edit the event", edit_event_path(@event), class: 'btn btn-primary' %>
@@ -48,7 +48,7 @@
           </div>
         <% end %>
       </div>
-    <% elsif @user.organizer? && @user.organized_events.include?(@event) %>
+    <% elsif @user.organizer? && @user.organized_events.include?(@event) && @event.closed? %>
       <div class="description">
           <p> <%= @event.start_time.strftime("%a, %d %b %Y") %>
           <div class="title">

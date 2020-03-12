@@ -1,7 +1,7 @@
 <div class="container">
   <%= render 'search_bar' %>
   <div class="row">
-    <% @events.each do |event| %>
+    <% @events.select { |event| event.start_time.to_date > DateTime.current.to_date }.each do |event| %>
       <div class="home-cards col-sm-4">
         <%= render "events/event_card", event: event %>
       </div>
