@@ -21,6 +21,8 @@ gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
 gem 'geocoder'
+gem 'bootstrap'
+gem 'jquery-rails', '~>4.3', '>= 4.3.3'
 
 
 group :development do
