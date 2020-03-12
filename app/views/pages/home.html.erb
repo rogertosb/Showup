@@ -5,7 +5,9 @@
     <p class="bannertext">By using stake, Showup incentivizes a higher attendance rate to your free events</p>
 
     <% if !current_user %>
-      <%= link_to 'Start now', new_user_registration_path, class: "btn btn-flat" %>
+    <div class="button-start-home">
+      <%= link_to 'Start now', new_user_registration_path, class: 'btn btn-primary' %>
+      </div>
     <% elsif current_user.attendee? %>
       <div class="search-form-home">
         <%= render './events/search_bar' %>
