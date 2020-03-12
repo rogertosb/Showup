@@ -1,5 +1,5 @@
-<% banner_url = image_url("banerprop1.jpg") %>
-<div class="banner mb-5" style="background-image: url(<%= banner_url %>), linear-gradient(to bottom, rgba(0,0,0,0.4),rgba(255,255,255,0.4)); background-position: bottom -100px right 0px">
+<% banner_url = image_url("imhome.jpeg") %>
+<div class="banner mb-5" style="background-image: url(<%= banner_url %>), linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)); background-position: bottom -100px right 0px">
   <div class="container">
     <h3>Boost attendence for your free events</h3>
     <p class="bannertext">By using stake, Showup incentivizes a higher attendance rate to your free events</p>
@@ -20,12 +20,12 @@
 
   <div class="container">
       <h2> This is how show-up works</h2>
-        <div class="home-cards col-sm">
-          <%= image_tag 'pain.png' %>
-            <p>this image will be replace by Guillaume</p>
-            <p>We will also provide information here in writing</p>
+        <div class="home-cards col-sm" style="padding-bottom: 30px; display: flex; justify-content: center;">
+          <%= image_tag 'Showup pitch.png' %>
         </div>
+
 <div class="container">
+  <h3> Events that might interest you</h3>
   <div class="row">
     <% Event.all.sample(3).each do |event| %>
       <div class="home-cards col-sm-4">
