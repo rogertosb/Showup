@@ -2,8 +2,9 @@
     <h1><%= @event.title %></h1>
     <p><%= @event.start_time.strftime("%a, %d %b %Y") %></p>
     <h2>Attendees - <%= @event.tickets.select { |ticket| ticket.showup? }.count %> / <%= @event.tickets.size %></h2>
+    <%= render "search_ticket" %>
     <div class="row">
-    <% @event.tickets.sort_by { |ticket| ticket.user.last_name }.each do |ticket| %>
+    <% @tickets.each do |ticket| %>
       <div class="user-event-status">
         <div class="status">
           <% if ticket.status.nil? %>

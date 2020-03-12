@@ -3,7 +3,15 @@ class TicketsController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
-    @tickets = Ticket.all
+    @tickets = @event.tickets
+      @search = params["search"]
+    if @search.present?
+      name = @search["name"]
+      users = @event.users.where("first_name ILIKE ?", "%#{name}%").or(@event.users.where("last_name ILIKE ?", "%#{name}%"))
+      @tickets = users.flat_map(&:tickets).select{|ticket|  ticket.event_id == @event.id}
+    end
+
+    @tickets = @tickets.sort_by { |ticket| ticket.user.last_name }
   end
 
   def create
