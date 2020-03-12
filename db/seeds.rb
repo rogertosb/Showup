@@ -226,14 +226,14 @@ The next batches in Brussels start on April the 6th (9 weeks - Full time) OR Mar
 We look forward to meeting you soon,
 
 Le Wagon Brussels Team",
-  location: "10 Cantersteen, Brussels",
+  location: "Becentral",
   banner: "https://i.imgur.com/W28v6KK.jpg",
   food: "None",
   drink: "Free",
   number_max_of_attendees: 200,
   stake: 5,
-  start_time: DateTime.parse('2020-03-13T07:18:00'),
-  end_time: DateTime.parse('2020-03-13T07:22:00')
+  start_time: DateTime.parse('2020-03-13T18:00:00'),
+  end_time: DateTime.parse('2020-03-13T23:00:00')
   )
 
 file = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F92961985%2F214604918889%2F1%2Foriginal.20200218-103312?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C40%2C1280%2C640&s=5d08d1e9655486e4f6c24e61be831c27')
@@ -249,8 +249,8 @@ e2 = Event.create!(
   drink: "Free",
   number_max_of_attendees: 200,
   stake: 10,
-  start_time: DateTime.parse('2020-03-17T07:12:00'),
-  end_time: DateTime.parse('2020-03-17T07:20:00')
+  start_time: DateTime.parse('2020-03-17T12:00:00'),
+  end_time: DateTime.parse('2020-03-17T20:00:00')
 )
 file2 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F89553591%2F153509925782%2F1%2Foriginal.20200127-120123?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2750%2C1375&s=904f2503ada3e60dfb589b22e6ddeedf')
 e2.photo.attach(io: file2, filename: 'nes.png', content_type: 'image/png')
@@ -260,14 +260,14 @@ e3 = Event.create!(
   user: o2,
   title: "Crypto / blockchain training",
   description: "An epic event for epic people",
-  location: "Boulevard d'Anvers 40, 1000 Bruxelles",
+  location: "DigitYer",
   banner: "https://i.imgur.com/W28v6KK.jpg",
   food: "Paid",
   drink: "Free",
-  number_max_of_attendees: 10,
-  stake: 5,
-  start_time: DateTime.parse('2020-03-23T07:18:00'),
-  end_time: DateTime.parse('2020-03-23T07:21:00')
+  number_max_of_attendees: 15,
+  stake: 10,
+  start_time: DateTime.parse('2020-03-23T18:00:00'),
+  end_time: DateTime.parse('2020-03-23T21:30:00')
 )
 file3 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F95384691%2F266279915391%2F1%2Foriginal.20200304-190545?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C214%2C4760%2C2380&s=59f9c5947882c50df5b560883c3b89c9')
 e3.photo.attach(io: file3, filename: 'nes.png', content_type: 'image/png')
@@ -282,9 +282,9 @@ e4 = Event.create!(
   food: "None",
   drink: "Paid",
   number_max_of_attendees: 80,
-  stake: 3,
-  start_time: DateTime.parse('2020-08-22T07:12:00'),
-  end_time: DateTime.parse('2020-08-23T07:20:00')
+  stake: 15,
+  start_time: DateTime.parse('2020-08-22T11:15:00'),
+  end_time: DateTime.parse('2020-08-23T20:00:00')
 )
 file4 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F75943693%2F241405942936%2F1%2Foriginal.20191008-094517?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C1280%2C640&s=39b454a0b17882b8b41f3171e2ca0ead')
 e4.photo.attach(io: file4, filename: 'nes.png', content_type: 'image/png')
@@ -300,8 +300,8 @@ e5 = Event.create!(
   drink: "Free",
   number_max_of_attendees: 2000,
   stake: 40,
-  start_time: DateTime.parse('2020-05-16T07:10:30'),
-  end_time: DateTime.parse('2020-05-16T07:21:30')
+  start_time: DateTime.parse('2020-05-16T10:30:00'),
+  end_time: DateTime.parse('2020-05-16T21:30:00')
 )
 file5 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F62158556%2F265611780961%2F1%2Foriginal.20190513-101106?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C51%2C2000%2C1000&s=ffbe0738d559c661a0f452d290efcb82')
 e5.photo.attach(io: file5, filename: 'nes.png', content_type: 'image/png')
@@ -317,11 +317,147 @@ e6 = Event.create!(
   drink: "Paid",
   number_max_of_attendees: 400,
   stake: 10,
-  start_time: DateTime.parse('2020-04-16T07:21:30'),
-  end_time: DateTime.parse('2020-04-16T07:23:30')
+  start_time: DateTime.parse('2020-04-16T21:30:00'),
+  end_time: DateTime.parse('2020-04-16T23:30:00')
 )
 file6 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F71918231%2F194893512187%2F1%2Foriginal.20190907-114116?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C11%2C960%2C480&s=6f25c81f214d0daa4bb56e1f70eb8d92')
 e6.photo.attach(io: file6, filename: 'nes.png', content_type: 'image/png')
+
+o1.reload
+e7 = Event.create!(
+  user_id: o1.id,
+  title: "Les rencontres de l'investissement",
+  description: "An epic event for epic people",
+  location: "Becentral",
+  banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F89585001%2F304037921150%2F1%2Foriginal.20191029-153226?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C800%2C400&s=85e379a2bc5ae3ccde7f7db8cc4fd446",
+  food: "None",
+  drink: "Paid",
+  number_max_of_attendees: 400,
+  stake: 10,
+  start_time: DateTime.parse('2020-03-18T10:15:00'),
+  end_time: DateTime.parse('2020-03-18T20:30:00')
+)
+file7 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F89585001%2F304037921150%2F1%2Foriginal.20191029-153226?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C800%2C400&s=85e379a2bc5ae3ccde7f7db8cc4fd446')
+e7.photo.attach(io: file7, filename: 'nes.png', content_type: 'image/png')
+
+o1.reload
+e8 = Event.create!(
+  user_id: o1.id,
+  title: "CoderDojo Kortenberg",
+  description: "An epic event for epic people",
+  location: "Bibliotheek Kortenberg",
+  banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F87868305%2F292655825325%2F1%2Foriginal.20200105-222107?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C79%2C1284%2C642&s=82d319348d5d26d71df2fa31bb368631",
+  food: "None",
+  drink: "Paid",
+  number_max_of_attendees: 400,
+  stake: 10,
+  start_time: DateTime.parse('2020-03-16T12:30:00'),
+  end_time: DateTime.parse('2020-03-16T16:00:00')
+)
+file8 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F87868305%2F292655825325%2F1%2Foriginal.20200105-222107?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C79%2C1284%2C642&s=82d319348d5d26d71df2fa31bb368631')
+e8.photo.attach(io: file8, filename: 'nes.png', content_type: 'image/png')
+
+o1.reload
+e9 = Event.create!(
+  user_id: o1.id,
+  title: "European Forest Policy Post-2020",
+  description: "An epic event for epic people",
+  location: "Residence Palace",
+  banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F88082473%2F226470159216%2F1%2Foriginal.20200117-061838?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=00e4c896b8f6a152cd940598a5e2154c",
+  food: "None",
+  drink: "Paid",
+  number_max_of_attendees: 400,
+  stake: 10,
+  start_time: DateTime.parse('2020-03-23T07:00:00'),
+  end_time: DateTime.parse('2020-03-23T18:00:00')
+)
+file9 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F88082473%2F226470159216%2F1%2Foriginal.20200117-061838?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=00e4c896b8f6a152cd940598a5e2154c')
+e9.photo.attach(io: file9, filename: 'nes.png', content_type: 'image/png')
+
+o1.reload
+e10 = Event.create!(
+  user_id: o1.id,
+  title: "Hospitality goes circular",
+  description: "An epic event for epic people",
+  location: "BIP - Place Royale",
+  banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F91676173%2F224805194479%2F1%2Foriginal.20200210-083621?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C1668%2C834&s=60f6f0ad1d0c8cc306d2db28c47bad7b",
+  food: "None",
+  drink: "Paid",
+  number_max_of_attendees: 400,
+  stake: 10,
+  start_time: DateTime.parse('2020-03-19T18:00:00'),
+  end_time: DateTime.parse('2020-03-19T22:00:00')
+)
+file10 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F91676173%2F224805194479%2F1%2Foriginal.20200210-083621?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C1668%2C834&s=60f6f0ad1d0c8cc306d2db28c47bad7b')
+e10.photo.attach(io: file10, filename: 'nes.png', content_type: 'image/png')
+
+o1.reload
+e11 = Event.create!(
+  user_id: o1.id,
+  title: "BPIE 10-year anniversary",
+  description: "An epic event for epic people",
+  location: "Leuvensesteenweg 24, 1210 Brussels",
+  banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F92994923%2F312420541600%2F1%2Foriginal.20200218-150417?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C241%2C1008%2C504&s=90e7ea1434696a0826b807d315870ef2",
+  food: "None",
+  drink: "Paid",
+  number_max_of_attendees: 400,
+  stake: 10,
+  start_time: DateTime.parse('2020-03-16T15:45:00'),
+  end_time: DateTime.parse('2020-03-16T18:45:00')
+)
+file11 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F92994923%2F312420541600%2F1%2Foriginal.20200218-150417?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C241%2C1008%2C504&s=90e7ea1434696a0826b807d315870ef2')
+e11.photo.attach(io: file11, filename: 'nes.png', content_type: 'image/png')
+
+o1.reload
+e12 = Event.create!(
+  user_id: o1.id,
+  title: "Brussels Science Promotion Meetup",
+  description: "An epic event for epic people",
+  location: "Museum of Natural Sciences",
+  banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F91007217%2F251311205792%2F1%2Foriginal.20200205-111906?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C800%2C400&s=c7caf2ddac71aa35e36876ec8c8dc050",
+  food: "None",
+  drink: "Paid",
+  number_max_of_attendees: 400,
+  stake: 10,
+  start_time: DateTime.parse('2020-03-26T12:30:00'),
+  end_time: DateTime.parse('2020-03-26T16:00:00')
+)
+file12 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F91007217%2F251311205792%2F1%2Foriginal.20200205-111906?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C800%2C400&s=c7caf2ddac71aa35e36876ec8c8dc050')
+e12.photo.attach(io: file12, filename: 'nes.png', content_type: 'image/png')
+
+o1.reload
+e13 = Event.create!(
+  user_id: o1.id,
+  title: "Fight Night - Anniversaire 3 ans ",
+  description: "An epic event for epic people",
+  location: "Marvelous Marvin Boxing Club",
+  banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F94437333%2F349799828757%2F1%2Foriginal.20200227-151202?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=b67f48d47b2a818127a7a90bbf9b9c61",
+  food: "None",
+  drink: "Paid",
+  number_max_of_attendees: 400,
+  stake: 10,
+  start_time: DateTime.parse('2020-03-19T18:00:00'),
+  end_time: DateTime.parse('2020-03-19T22:30:00')
+)
+file13 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F94437333%2F349799828757%2F1%2Foriginal.20200227-151202?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=b67f48d47b2a818127a7a90bbf9b9c61')
+e13.photo.attach(io: file13, filename: 'nes.png', content_type: 'image/png')
+
+o2.reload
+e14 = Event.create!(
+  user_id: o2.id,
+  title: "Patient safety and the implementation",
+  description: "An epic event for epic people",
+  location: "European Parliament",
+  banner: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F90193019%2F339669084503%2F1%2Foriginal.20200130-172006?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=a88b266db46919833f8a16889cf987a1",
+  food: "None",
+  drink: "Paid",
+  number_max_of_attendees: 400,
+  stake: 10,
+  start_time: DateTime.parse('2020-02-16T07:00:00'),
+  end_time: DateTime.parse('2020-02-16T17:30:00')
+)
+file14 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F90193019%2F339669084503%2F1%2Foriginal.20200130-172006?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=a88b266db46919833f8a16889cf987a1')
+e14.photo.attach(io: file14, filename: 'nes.png', content_type: 'image/png')
 
 
 # --------------------------------------------------------------------------------------------#
@@ -340,7 +476,13 @@ order_9 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e4.
 order_10 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e4.id, amount_cents: e4.stake*100)
 order_11 = Order.create!(state: 'requires_capture', user_id: a1.id, event_id: e3.id, amount_cents: e3.stake*100)
 order_12 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e3.id, amount_cents: e3.stake*100)
-order_13 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_13 = Order.create!(state: 'requires_capture', user_id: a5.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_14 = Order.create!(state: 'requires_capture', user_id: a6.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_15 = Order.create!(state: 'requires_capture', user_id: a7.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_16 = Order.create!(state: 'requires_capture', user_id: a8.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_17 = Order.create!(state: 'requires_capture', user_id: a9.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_18 = Order.create!(state: 'requires_capture', user_id: a10.id, event_id: e3.id, amount_cents: e3.stake*100)
+
 
 
 
@@ -379,4 +521,10 @@ t9 = Ticket.create!(status: "Attending", attending_event: e4, user: a2, order_id
 t10 = Ticket.create!(status: "Attending", attending_event: e4, user: a4, order_id: order_10.id)
 t11 = Ticket.create!(status: "Attending", attending_event: e3, user: a1, order_id: order_11.id)
 t12 = Ticket.create!(status: "Attending", attending_event: e3, user: a2, order_id: order_12.id)
-t13 = Ticket.create!(status: "Attending", attending_event: e3, user: a4, order_id: order_13.id)
+t13 = Ticket.create!(status: "Attending", attending_event: e3, user: a5, order_id: order_13.id)
+t14 = Ticket.create!(status: "Attending", attending_event: e3, user: a6, order_id: order_14.id)
+t15 = Ticket.create!(status: "Attending", attending_event: e3, user: a7, order_id: order_15.id)
+t16 = Ticket.create!(status: "Attending", attending_event: e3, user: a8, order_id: order_16.id)
+t17 = Ticket.create!(status: "Attending", attending_event: e3, user: a9, order_id: order_17.id)
+t18 = Ticket.create!(status: "Attending", attending_event: e3, user: a10, order_id: order_18.id)
+
