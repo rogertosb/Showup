@@ -95,6 +95,90 @@ a4 = User.create!(
 file_a4 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
 a4.avatar.attach(io: file_a4, filename: 'nes.png', content_type: 'image/png')
 
+a5 = User.create!(
+  first_name: "Hal",
+  last_name: "Leech",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee5@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a5 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a5.avatar.attach(io: file_a5, filename: 'nes.png', content_type: 'image/png')
+
+a6 = User.create!(
+  first_name: "Amelia",
+  last_name: "Donovan",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee6@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a6 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a6.avatar.attach(io: file_a6, filename: 'nes.png', content_type: 'image/png')
+
+a7 = User.create!(
+  first_name: "Lenny",
+  last_name: "Hussain",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee7@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a7 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a7.avatar.attach(io: file_a7, filename: 'nes.png', content_type: 'image/png')
+
+a8 = User.create!(
+  first_name: "Lilly-Grace",
+  last_name: "Leonard",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee8@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a8 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a8.avatar.attach(io: file_a8, filename: 'nes.png', content_type: 'image/png')
+
+a9 = User.create!(
+  first_name: "Hanna",
+  last_name: "Booker",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee9@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a9 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a9.avatar.attach(io: file_a9, filename: 'nes.png', content_type: 'image/png')
+
+a10 = User.create!(
+  first_name: "Layan",
+  last_name: "Steele",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee10@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a10 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a10.avatar.attach(io: file_a10, filename: 'nes.png', content_type: 'image/png')
+
+a11 = User.create!(
+  first_name: "Dolly",
+  last_name: "Ramos",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee11@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a11 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a11.avatar.attach(io: file_a11, filename: 'nes.png', content_type: 'image/png')
+
 # --------------------------------------------------------------------------------------------#
 
 # Creates events

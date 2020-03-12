@@ -106,3 +106,25 @@ h2, h3{
   margin-top: 15px;
 }
 
+.final-info {
+  border-color: #0A2463;
+  border-style: solid;
+  border-width: 2px;
+  padding: 5px;
+  width: 250px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+    p {
+    margin-bottom: 6px !important;
+    }
+}
+
+.final-title {
+  background-color: #0A2463;
+  color: white;
+  font-size: 16px;
+  p {
+  margin-top: 10px;
+  }
+}
