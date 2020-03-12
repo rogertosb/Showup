@@ -2,12 +2,20 @@
   <div class="row py-4">
     <!-- <div class="col-md-3"><%#= image_tag @order.teddy.photo_url, width: '100%' %></div> -->
     <div class="col">
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
+      <h1>Your order is
+        <% if @order.state == 'requires_capture' %>
+           validated
+        <% else %>
+          <%= @order.state %>
+        <% end %>
+
+        </h1><br><br><br>
       <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>EVENT</strong> <%= @order.event.title %> </li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
+        <li><strong>Created on</strong> <%= @order.created_at.to_date %></li><br>
+        <li><strong>For:</strong> <%= @order.event.title %> </li><br>
+        <li><strong>TOTAL:</strong> <%= humanized_money_with_symbol @order.amount %></li>
         </li>
+        <%= link_to 'Back to the event', event_path(@order.event), class: 'btn btn-primary mt-5' %>
       </ul>
     </div>
   </div>
