@@ -42,6 +42,8 @@ o2 = User.create!(
 file_o2 = URI.open('https://media-exp1.licdn.com/dms/image/C560BAQHS3evhUovLrg/company-logo_200_200/0?e=2159024400&v=beta&t=m3PX3wFkQvKkhT2SZFelExdkWACqGDkBFFd9J1lucVk')
 o2.avatar.attach(io: file_o2, filename: 'nes.png', content_type: 'image/png')
 
+puts "#{User.all.count} users created"
+
 # --------------------------------------------------------------------------------------------#
 
 # Creates 4 users with attendee type
@@ -179,6 +181,128 @@ a11 = User.create!(
 file_a11 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
 a11.avatar.attach(io: file_a11, filename: 'nes.png', content_type: 'image/png')
 
+a12 = User.create!(
+  first_name: "Marlie",
+  last_name: "Morgan",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee12@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a12 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a12.avatar.attach(io: file_a12, filename: 'nes.png', content_type: 'image/png')
+
+a13 = User.create!(
+  first_name: "Kit",
+  last_name: "Cortes",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee13@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a13 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a13.avatar.attach(io: file_a13, filename: 'nes.png', content_type: 'image/png')
+
+a14 = User.create!(
+  first_name: "Corrina",
+  last_name: "Reader",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee14@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a14 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a14.avatar.attach(io: file_a14, filename: 'nes.png', content_type: 'image/png')
+
+a15 = User.create!(
+  first_name: "Sioned",
+  last_name: "Wilder",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee15@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a15 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a15.avatar.attach(io: file_a15, filename: 'nes.png', content_type: 'image/png')
+
+a16 = User.create!(
+  first_name: "Isa",
+  last_name: "Coles",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee16@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a16 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a16.avatar.attach(io: file_a16, filename: 'nes.png', content_type: 'image/png')
+
+a17 = User.create!(
+  first_name: "Kiara",
+  last_name: "Broadhurst",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee17@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a17 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a17.avatar.attach(io: file_a17, filename: 'nes.png', content_type: 'image/png')
+
+a18 = User.create!(
+  first_name: "Shae",
+  last_name: "Jennings",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee18@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a18 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a18.avatar.attach(io: file_a18, filename: 'nes.png', content_type: 'image/png')
+
+a19 = User.create!(
+  first_name: "Anderson",
+  last_name: "Senior",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee19@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a19 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a19.avatar.attach(io: file_a19, filename: 'nes.png', content_type: 'image/png')
+
+a20 = User.create!(
+  first_name: "Sumayya",
+  last_name: "Velazquez",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee20@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a20 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a20.avatar.attach(io: file_a20, filename: 'nes.png', content_type: 'image/png')
+
+a21 = User.create!(
+  first_name: "Alanis",
+  last_name: "Alanis",
+  organizer_name: nil,
+  user_type: "attendee",
+  email: "attendee21@test.com",
+  password: "hellohello",
+  password_confirmation: "hellohello"
+)
+file_a21 = URI.open('https://i.imgur.com/zlB6NdR.jpg')
+a21.avatar.attach(io: file_a21, filename: 'nes.png', content_type: 'image/png')
+
+
+puts "#{User.all.count} users created"
 # --------------------------------------------------------------------------------------------#
 
 # Creates events
@@ -460,6 +584,9 @@ file14 = URI.open('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F
 e14.photo.attach(io: file14, filename: 'nes.png', content_type: 'image/png')
 
 
+
+puts "#{Event.all.count} events created"
+
 # --------------------------------------------------------------------------------------------#
 
 # Creates orders
@@ -471,19 +598,32 @@ order_4 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e1.
 order_5 = Order.create!(state: 'requires_capture', user_id: a1.id, event_id: e2.id, amount_cents: e2.stake*100)
 order_6 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e2.id, amount_cents: e2.stake*100)
 order_7 = Order.create!(state: 'requires_capture', user_id: a3.id, event_id: e2.id, amount_cents: e2.stake*100)
-order_8 = Order.create!(state: 'requires_capture', user_id: a3.id, event_id: e3.id, amount_cents: e3.stake*100)
-order_9 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e4.id, amount_cents: e4.stake*100)
-order_10 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e4.id, amount_cents: e4.stake*100)
-order_11 = Order.create!(state: 'requires_capture', user_id: a1.id, event_id: e3.id, amount_cents: e3.stake*100)
-order_12 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e3.id, amount_cents: e3.stake*100)
-order_13 = Order.create!(state: 'requires_capture', user_id: a5.id, event_id: e3.id, amount_cents: e3.stake*100)
-order_14 = Order.create!(state: 'requires_capture', user_id: a6.id, event_id: e3.id, amount_cents: e3.stake*100)
-order_15 = Order.create!(state: 'requires_capture', user_id: a7.id, event_id: e3.id, amount_cents: e3.stake*100)
-order_16 = Order.create!(state: 'requires_capture', user_id: a8.id, event_id: e3.id, amount_cents: e3.stake*100)
-order_17 = Order.create!(state: 'requires_capture', user_id: a9.id, event_id: e3.id, amount_cents: e3.stake*100)
-order_18 = Order.create!(state: 'requires_capture', user_id: a10.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_8 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e4.id, amount_cents: e4.stake*100)
+order_9 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e4.id, amount_cents: e4.stake*100)
+order_10 = Order.create!(state: 'requires_capture', user_id: a1.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_11 = Order.create!(state: 'requires_capture', user_id: a2.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_12 = Order.create!(state: 'requires_capture', user_id: a3.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_13 = Order.create!(state: 'requires_capture', user_id: a4.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_14 = Order.create!(state: 'requires_capture', user_id: a5.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_15 = Order.create!(state: 'requires_capture', user_id: a6.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_16 = Order.create!(state: 'requires_capture', user_id: a7.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_17 = Order.create!(state: 'requires_capture', user_id: a8.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_18 = Order.create!(state: 'requires_capture', user_id: a9.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_19 = Order.create!(state: 'requires_capture', user_id: a10.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_20 = Order.create!(state: 'requires_capture', user_id: a11.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_21 = Order.create!(state: 'requires_capture', user_id: a12.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_22 = Order.create!(state: 'requires_capture', user_id: a13.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_23 = Order.create!(state: 'requires_capture', user_id: a14.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_24 = Order.create!(state: 'requires_capture', user_id: a15.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_25 = Order.create!(state: 'requires_capture', user_id: a16.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_26 = Order.create!(state: 'requires_capture', user_id: a17.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_27 = Order.create!(state: 'requires_capture', user_id: a18.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_28 = Order.create!(state: 'requires_capture', user_id: a19.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_29 = Order.create!(state: 'requires_capture', user_id: a20.id, event_id: e3.id, amount_cents: e3.stake*100)
+order_30 = Order.create!(state: 'requires_capture', user_id: a21.id, event_id: e3.id, amount_cents: e3.stake*100)
 
 
+puts "#{Order.all.count} orders created"
 
 
 Order.all.each do |order|
@@ -496,17 +636,6 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # Creates reservations
 
 t1 = Ticket.create!(status: "Attending", attending_event: e1, user: a1, order_id: order_1.id)
@@ -516,15 +645,28 @@ t4 = Ticket.create!(status: "Attending", attending_event: e1, user: a4, order_id
 t5 = Ticket.create!(status: "Attending", attending_event: e2, user: a1, order_id: order_5.id)
 t6 = Ticket.create!(status: "Attending", attending_event: e2, user: a2, order_id: order_6.id)
 t7 = Ticket.create!(status: "Attending", attending_event: e2, user: a3, order_id: order_7.id)
-t8 = Ticket.create!(status: "Attending", attending_event: e3, user: a3, order_id: order_8.id)
-t9 = Ticket.create!(status: "Attending", attending_event: e4, user: a2, order_id: order_9.id)
-t10 = Ticket.create!(status: "Attending", attending_event: e4, user: a4, order_id: order_10.id)
-t11 = Ticket.create!(status: "Attending", attending_event: e3, user: a1, order_id: order_11.id)
-t12 = Ticket.create!(status: "Attending", attending_event: e3, user: a2, order_id: order_12.id)
-t13 = Ticket.create!(status: "Attending", attending_event: e3, user: a5, order_id: order_13.id)
-t14 = Ticket.create!(status: "Attending", attending_event: e3, user: a6, order_id: order_14.id)
-t15 = Ticket.create!(status: "Attending", attending_event: e3, user: a7, order_id: order_15.id)
-t16 = Ticket.create!(status: "Attending", attending_event: e3, user: a8, order_id: order_16.id)
-t17 = Ticket.create!(status: "Attending", attending_event: e3, user: a9, order_id: order_17.id)
-t18 = Ticket.create!(status: "Attending", attending_event: e3, user: a10, order_id: order_18.id)
+t8 = Ticket.create!(status: "Attending", attending_event: e4, user: a2, order_id: order_8.id)
+t9 = Ticket.create!(status: "Attending", attending_event: e4, user: a4, order_id: order_9.id)
+t10 = Ticket.create!(status: "Attending", attending_event: e3, user: a1, order_id: order_10.id)
+t11 = Ticket.create!(status: "Attending", attending_event: e3, user: a2, order_id: order_11.id)
+t12 = Ticket.create!(status: "Attending", attending_event: e3, user: a3, order_id: order_12.id)
+t13 = Ticket.create!(status: "Attending", attending_event: e3, user: a4, order_id: order_13.id)
+t14 = Ticket.create!(status: "Attending", attending_event: e3, user: a5, order_id: order_14.id)
+t15 = Ticket.create!(status: "Attending", attending_event: e3, user: a6, order_id: order_15.id)
+t16 = Ticket.create!(status: "Attending", attending_event: e3, user: a7, order_id: order_16.id)
+t17 = Ticket.create!(status: "Attending", attending_event: e3, user: a8, order_id: order_17.id)
+t18 = Ticket.create!(status: "Attending", attending_event: e3, user: a9, order_id: order_18.id)
+t19 = Ticket.create!(status: "Attending", attending_event: e3, user: a10, order_id: order_19.id)
+t20 = Ticket.create!(status: "Attending", attending_event: e3, user: a11, order_id: order_20.id)
+t21 = Ticket.create!(status: "Attending", attending_event: e3, user: a12, order_id: order_21.id)
+t22 = Ticket.create!(status: "Attending", attending_event: e3, user: a13, order_id: order_22.id)
+t23 = Ticket.create!(status: "Attending", attending_event: e3, user: a14, order_id: order_23.id)
+t24 = Ticket.create!(status: "Attending", attending_event: e3, user: a15, order_id: order_24.id)
+t25 = Ticket.create!(status: "Attending", attending_event: e3, user: a16, order_id: order_25.id)
+t26 = Ticket.create!(status: "Attending", attending_event: e3, user: a17, order_id: order_26.id)
+t27 = Ticket.create!(status: "Attending", attending_event: e3, user: a18, order_id: order_27.id)
+t28 = Ticket.create!(status: "Attending", attending_event: e3, user: a19, order_id: order_28.id)
+t29 = Ticket.create!(status: "Attending", attending_event: e3, user: a20, order_id: order_29.id)
+t30 = Ticket.create!(status: "Attending", attending_event: e3, user: a21, order_id: order_30.id)
 
+puts "#{Ticket.all.count} tickets created"
