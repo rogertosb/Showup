@@ -58,7 +58,7 @@
           <div class="final-info">
           <div> Final results </div>
           <div class="final-title"><p> ATTENDEEES </p></div>
-          <p><%= @event.tickets.select { |ticket| ticket.showup? }.size %> / <%= @event.tickets.size %> <strong>(<%= (@event.tickets.select { |ticket| ticket.showup? }.size.to_f / @event.tickets.size.to_f)*100 %> %)</strong></p>
+          <p><%= @event.tickets.select { |ticket| ticket.showup? }.size %> / <%= @event.tickets.size %> <strong>(<%= ((@event.tickets.select { |ticket| ticket.showup? }.size.to_f / @event.tickets.size)*100).round(1) %> %)</strong></p>
           <div class="final-title"><p> CASHBACK </p></div>
           <p><strong><%= @stake_earned %> € </strong></p>
           <!-- <p> number of people who canceled : <strong><%#= @event.tickets.select { |ticket| ticket.canceled? }.size %></strong></p> -->
