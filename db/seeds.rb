@@ -587,6 +587,7 @@ e14.photo.attach(io: file14, filename: 'nes.png', content_type: 'image/png')
 
 puts "#{Event.all.count} events created"
 
+
 # --------------------------------------------------------------------------------------------#
 
 # Creates orders
@@ -624,6 +625,7 @@ order_30 = Order.create!(state: 'requires_capture', user_id: a21.id, event_id: e
 
 
 puts "#{Order.all.count} orders created"
+
 
 
 Order.all.each do |order|
@@ -670,3 +672,4 @@ t29 = Ticket.create!(status: "Attending", attending_event: e3, user: a20, order_
 t30 = Ticket.create!(status: "Attending", attending_event: e3, user: a21, order_id: order_30.id)
 
 puts "#{Ticket.all.count} tickets created"
+
