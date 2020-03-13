@@ -1,0 +1,5 @@
+meta_product_name: "Showup"
+meta_title: "Showup - Boost attendence for your free events"
+meta_description: "By using stake, Showup incentivizes a higher attendance rate to your free events"
+meta_image: "imhome.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
